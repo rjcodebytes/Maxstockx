@@ -4,7 +4,7 @@
 
 body {
     background: black;
-    height: 300vh;
+    height: 400vh;
 }
 
 .cstm-btn {
@@ -148,7 +148,104 @@ body {
 
 /*Our Courses*/
 .oc{
-    margin-top: 100px;
+    
+}
+
+.cc {
+    width: 18rem;
+    height: auto;
+
+    /* For the animated border */
+    --border-angle: 0turn;
+    --main-bg: conic-gradient(
+        from var(--border-angle),
+        rgb(0, 0, 0),
+        rgb(0, 0, 0) 5%,
+        rgb(0, 0, 0) 60%,
+        rgb(0, 0, 0) 95%
+    );
+    --gradient-border: conic-gradient(
+        from var(--border-angle),
+        transparent 25%,
+        #47f4f4,
+        #62CE3E 99%,
+        transparent
+    );
+
+    border: solid 3px transparent;
+    border-radius: 26px;
+    padding: 1rem;
+    background: 
+        var(--main-bg) padding-box,
+        var(--gradient-border) border-box,
+        var(--main-bg) border-box;
+
+    animation: bg-spin 3s linear infinite;
+    background-position: center center;
+    transition: transform 0.3s ease-in-out; /* Smooth scaling effect */
+}
+
+.cc:hover {
+    animation-play-state: paused; /* Pause the border animation on hover */
+    transform: scale(1.05); /* Scale the card slightly on hover */
+    border: 3px solid #62CE3E;
+    box-shadow: 0px 35px 32px -30px #62CE3E;
+}
+
+.card-text{
+    color: #636363;
+}
+
+.crs-btn{
+    padding: 5px 20px;
+    border-radius: 60px;
+}
+
+.btn-primary{
+    background: #62CE3E;
+    color: black;
+    font-weight: 500;
+    border: 2px solid transparent;
+    transition: .3s;
+}
+
+.btn-primary:hover{
+    background: none;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    border: 2px solid #62CE3E;
+}
+
+.ex{
+    scale: 1.2;
+    background: none;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    border: 2px solid #62CE3E;
+}
+
+.ex:hover{
+    background: #62CE3E;
+    color: black;
+    font-weight: 500;
+    border: 2px solid transparent;
+}
+
+@keyframes bg-spin {
+    to {
+        --border-angle: 1turn;
+    }
+}
+
+@property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+}
+
+.cc img{
+    height: 150px;
+    border-radius: 10px;
 }
 /* Example to adjust spacing or layout for smaller screens */
 @media (max-width: 767px) {
