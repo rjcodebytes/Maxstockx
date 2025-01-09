@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    <!--Header Section-->
     <nav class="navbar navbar-expand-lg bg-none">
         <div class="container-fluid">
             <a class="navbar-brand" href="">
@@ -33,6 +34,8 @@
         </div>
     </nav>
 
+
+    <!--Subheader and features Section-->
     <div class="container-fluid position-relative d-flex justify-content-center align-items-center mt-5"
         style="height: 500px;">
         <!-- First Image on the left -->
@@ -109,55 +112,65 @@
         </div>
     </div>
 
-    <div class="container-fluid position-relative d-flex justify-content-center align-items-center mt-5"
-        style="height: 500px;">
 
+    <!--Courses Section-->
+    <div class="container-fluid position-relative d-flex justify-content-center align-items-center mt-5"
+        style="height: 800px;top:450px">
         <!-- Our Courses Section Title -->
         <div class="oc position-absolute"
-            style="z-index: 1; top: 70%; left: 50%; transform: translateX(-50%); width:800px;">
-            <h1 class="ftr text-center" data-aos="zoom-in" data-aos-duration="1000">Our Courses</h1>
+            style="z-index: 1; top: 0%; left: 50%; transform: translateX(-50%); width:800px;">
+            <h1 class="ftr text-center m-3" data-aos="zoom-in" data-aos-duration="1000">Our Courses</h1>
         </div>
 
-        <section class="courses position-relative mt-5" style="margin-top: 200px; top: 70%">
+        <section>
             <!-- Added margin to push cards below -->
-            <div class="d-flex justify-content-center flex-wrap" id="courses-container" style="top:250px; position:relative">
+            <div class="d-flex justify-content-center flex-wrap mt-3" id="courses-container"
+                >
                 <!-- Course Card 1 -->
-                <div class="card mx-3 mb-4" style="width: 18rem;" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Course 1">
+                <div class="cc card mx-5 mb-4" style="width: 18rem;transition: 0.5s" data-aos="fade-right"
+                    data-aos-delay="500" data-aos-duration="1000">
+                    <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course 1">
                     <div class="card-body">
-                        <h5 class="card-title">Course Title 1</h5>
+                        <h5 class="card-title text-white mt-2">Course Title 1</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                        <a href="#" class="btn btn-primary">Learn More</a>
+                        <a href="#" class="crs-btn btn btn-primary">Learn More</a>
                     </div>
                 </div>
 
                 <!-- Course Card 2 -->
-                <div class="card mx-3 mb-4" style="width: 18rem;" data-aos="fade-down" data-aos-delay="500" data-aos-duration="1000">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Course 2">
+                <div class="cc card mx-5 mb-4" style="width: 18rem; transition: 0.5s;" data-aos="fade-down"
+                    data-aos-delay="500" data-aos-duration="1000">
+                    <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course 2">
                     <div class="card-body">
-                        <h5 class="card-title">Course Title 2</h5>
+                        <h5 class="card-title text-white mt-2">Course Title 2</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                        <a href="#" class="btn btn-primary">Learn More</a>
+                        <a href="#" class="crs-btn btn btn-primary mt-2">Learn More</a>
                     </div>
                 </div>
 
                 <!-- Course Card 3 -->
-                <div class="card mx-3 mb-4" style="width: 18rem;" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Course 3">
+                <div class="cc card mx-5 mb-4" style="width: 18rem;transition: 0.5s" data-aos="fade-left"
+                    data-aos-delay="500" data-aos-duration="1000">
+                    <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course 3">
                     <div class="card-body">
-                        <h5 class="card-title">Course Title 3</h5>
+                        <h5 class="card-title text-white mt-2">Course Title 3</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                        <a href="#" class="btn btn-primary">Learn More</a>
+                        <a href="#" class="crs-btn btn btn-primary">Learn More</a>
                     </div>
                 </div>
             </div>
-        </section>
-        
 
+            <!-- Explore Courses Button -->
+            <div class="text-center position-relative " style="top:30px" data-aos="zoom-in" data-aos-duration="1000">
+                <a href="{{ url('register') }}" class="ex crs-btn btn btn-primary btn-lg">Explore Courses . .</a>
+            </div>
+        </section>
     </div>
+
+
 
 
 
