@@ -75,7 +75,7 @@
     </div>
 
     <!-- Features Section -->
-    <section class="container features-section  d-flex flex-column justify-content-center align-items-center" >
+    <section class="container features-section  d-flex flex-column justify-content-center align-items-center">
         <h2 class="text-center text-highlight  ftr" data-aos="zoom-in">Features</h2>
 
         <div class="d-flex justify-content-center flex-column align-items-start">
@@ -119,36 +119,33 @@
 
     <!-- Courses Section New-->
     <section class="container courses-section py-5">
-        <h2 class="text-center text-highlight mb-5" data-aos="zoom-in">Our Courses</h2>
+        <h2 class="text-center text-highlight mb-5 ftr" data-aos="zoom-in">Our Courses</h2>
         <div class="row justify-content-center">
-            <div class="cc col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card course-card">
-                    <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
-                    <div class="card-body">
-                        <h5 class="card-title">Course Title 1</h5>
-                        <p class="card-text">Some quick example text to build on the card title and content.</p>
-                        <a href="#" class="btn btn-primary">Learn More</a>
-                    </div>
+
+            <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-right" style="transition:.6s">
+                <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
+                <div class="card-body">
+                    <h5 class="card-title">Course Title 1</h5>
+                    <p class="card-text">Some quick example text to build on the card title and content.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="card course-card">
-                    <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
-                    <div class="card-body">
-                        <h5 class="card-title">Course Title 2</h5>
-                        <p class="card-text">Some quick example text to build on the card title and content.</p>
-                        <a href="#" class="btn btn-primary">Learn More</a>
-                    </div>
+
+            <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-up"  style="transition:.6s">
+                <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
+                <div class="card-body">
+                    <h5 class="card-title">Course Title 2</h5>
+                    <p class="card-text">Some quick example text to build on the card title and content.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
-                <div class="card course-card">
-                    <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
-                    <div class="card-body">
-                        <h5 class="card-title">Course Title 3</h5>
-                        <p class="card-text">Some quick example text to build on the card title and content.</p>
-                        <a href="#" class="btn btn-primary">Learn More</a>
-                    </div>
+
+            <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-left"  style="transition:.6s">
+                <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
+                <div class="card-body">
+                    <h5 class="card-title">Course Title 3</h5>
+                    <p class="card-text">Some quick example text to build on the card title and content.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
                 </div>
             </div>
         </div>
