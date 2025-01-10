@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-none">
         <div class="container-fluid">
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="{{ url('') }}">
                 <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100" class="ms-5 mt-5">
             </a>
             <div class="cstnav ms-auto d-flex mt-5">

@@ -32,6 +32,10 @@ Route::get('register', function () {
     return view('auth.register');
 })->name('register');
 
+Route::get('landing', function () {
+    return view('auth.landing');
+})->name('landing');
+
 Route::post('signup', [UserController::class, 'store'])->name('register.store');
 
 Route::get('explore', function () {

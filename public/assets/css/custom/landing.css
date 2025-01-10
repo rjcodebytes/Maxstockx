@@ -1,0 +1,98 @@
+/* General */
+body {
+    background-color: #000;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* Subheader */
+.subheader {
+    height: 500px;
+    position: relative;
+}
+
+.subheader-img-left,
+.subheader-img-right {
+    position: absolute;
+    width: 30%;
+    opacity: 0.2;
+    filter: blur(5px);
+    animation: blur 2s ease-in-out infinite;
+}
+
+.h1,
+.h2 {
+    font-size: 55px;
+    font-weight: 600;
+}
+
+.h1 {
+    color: white;
+}
+
+.h2 {
+    color: #62CE3E;
+}
+
+.h3 {
+    font-size: 35px;
+    font-weight: 300;
+}
+
+.h4 {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.subheader-img-left {
+    left: 0;
+    transform: rotate(20deg);
+}
+
+.subheader-img-right {
+    right: 0;
+    transform: rotate(-20deg);
+}
+
+.subheader-text h1 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.subheader-text p {
+    font-size: 1.2rem;
+    color: #8FE273;
+}
+
+/* Features */
+.features-section .feature-item h3 {
+    font-size: 2.5rem;
+    color: #62CE3E;
+}
+
+.features-section .feature-item p {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+/* Courses */
+.course-card {
+    border: none;
+    transition: transform 0.3s;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(98, 206, 62, 0.5);
+}
+
+.course-card .card-title {
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.course-card .card-text {
+    color: #636363;
+}
+

@@ -4,7 +4,7 @@
 
 body {
     background: black;
-    height: 400vh;
+    height: 250vh;
 }
 
 .cstm-btn {
@@ -60,25 +60,31 @@ body {
     font-weight: 300;
 }
 
-.l1 {
-    filter: blur(5px);
-    width: 40%;
-    height: 100%;
-    object-fit: cover;
-    opacity: .2;
-    scale: .8;
-    transform: rotate(60deg);
+.subheader-img-left {
+    left: 0;
+    transform: rotate(50deg);
 }
 
-.l2 {
-    filter: blur(5px);
-    width: 40%;
-    height: 100%;
-    object-fit: cover;
-    opacity: .2;
-    scale: .8;
-    transform: rotate(20deg);
+.subheader-img-right {
+    right: 0;
+    transform: rotate(-20deg);
 }
+.subheader-img-left,
+.subheader-img-right {
+    position: relative;
+    margin-left: 200px;
+    margin-right: 200px;
+    width: 30%;
+    opacity: 0.2;
+    filter: blur(5px);
+    bottom: 30px;
+    animation: updown 3s ease infinite;
+}
+
+@keyframes updown{
+    50%{bottom: 10px; scale:1.09}
+}
+
 
 .ftr {
     font-size: 80px;
@@ -88,9 +94,6 @@ body {
 
 /* Flexbox styling for feature group */
 .feature-group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 80px;
 }
 
@@ -136,19 +139,20 @@ body {
 .feature-text {
     position: relative;
     font-size: 1.5rem;
-    top: 35px;
+    top: 45px;
     opacity: 0;
     font-style: italic;
     /* For animation */
     text-align: left;
     color: white;
+    padding-left: 80px;
     /* Align text to the left of the numbers */
 }
 
 
 /*Our Courses*/
-.oc{
-    
+.ccs{
+    border: 2px solid red;
 }
 
 .cc {
