@@ -21,19 +21,7 @@
 
 <body>
     <!--Header Section-->
-    <nav class="navbar navbar-expand-lg bg-none">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="">
-                <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100" class="ms-5 mt-5">
-            </a>
-            <div class="cstnav ms-auto d-flex mt-5">
-                <!-- Buttons aligned to the right -->
-                <a href="{{ url('login') }}" class="btn cstm-btn me-5">Login</a>
-                <a href="{{ url('landing') }}" class="btn cstm-btn me-5">Sign Up</a>
-            </div>
-        </div>
-    </nav>
-
+    @include('layouts.header')
 
     <!--Subheader and features Section-->
     <div class="container-fluid position-relative d-flex justify-content-center align-items-center mt-5"
@@ -131,7 +119,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-up"  style="transition:.6s">
+            <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-up" style="transition:.6s">
                 <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
                 <div class="card-body">
                     <h5 class="card-title">Course Title 2</h5>
@@ -140,7 +128,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-left"  style="transition:.6s">
+            <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-left" style="transition:.6s">
                 <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
                 <div class="card-body">
                     <h5 class="card-title">Course Title 3</h5>

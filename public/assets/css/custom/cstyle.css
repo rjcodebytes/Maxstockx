@@ -273,34 +273,26 @@ body {
     transition: .3s;
 }
 
+.ftr-lnks{
+    color: #9a9a9a;
+    transition: .3s;
+}
+
 .ftr-lnks:hover{
     color: #62CE3E;
 }
 
-.social:nth-child(1):hover{
-    color: rgb(0, 123, 255);
+.social:hover{
+    color: #62CE3E;
 }
 
-.social:nth-child(2):hover{
-    color: pink;
-}
-.social:nth-child(3):hover{
-    color: red;
-}
-.social:nth-child(4):hover{
-    color: rgb(0, 162, 255);
-}
-
-.social-cont{
-    margin-top: 15px;
-}
 
 .ftr-logo{
     position: relative;
-    bottom: 50px;
+    bottom: 20px;
     right: 50px;
 }
 
 .footer{
-    border-top: 2px solid #62CE3E;
+    border-top: 2px solid rgb(98, 206, 62);
 }
