@@ -25,52 +25,56 @@
 
     @include('layouts.header')
     @include('_message')
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                <h2 class="text-center mb-4">Signup</h2>
-                <form action="{{ route('register.store') }}" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required
-                            onkeyup="validatePassword(); checkPasswordMatch();">
-                        <div id="password-requirements" class="mb-2 mt-2" style="transition: 0.3s"></div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password_confirmation" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="password_confirmation"
-                            name="password_confirmation" required onkeyup="checkPasswordMatch()">
-                    </div>
-                    <div id="password-match-message" class="mb-2" style="transition: 0.3s"></div>
-                    <button type="submit" id="submit-btn" class="btn btn-primary w-100" disabled>Signup</button>
-                </form>
-
+    
+    <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%; border-radius: 12px;">
+        <!-- Display Errors -->
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-        </div>
+        @endif
+
+        <!-- Signup Form -->
+        <h3 class="text-center mb-4">Signup</h3>
+        <form action="{{ route('register.store') }}" method="POST">
+            @csrf
+            <div class="form-group mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your name">
+            </div>
+            <div class="form-group mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" class="form-control" required placeholder="Enter a username">
+            </div>
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email">
+            </div>
+            <div class="form-group mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required
+                    placeholder="Enter a password" onkeyup="validatePassword(); checkPasswordMatch();">
+                <div id="password-requirements" class="mt-2" style="transition: 0.3s"></div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="password_confirmation" class="form-label">Confirm Password</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control"
+                    required placeholder="Confirm your password" onkeyup="checkPasswordMatch();">
+                <div id="password-match-message" class="mt-2" style="transition: 0.3s"></div>
+            </div>
+            <button type="submit" id="submit-btn" class="btn cstm-btn w-100" disabled>Signup</button>
+        </form>
+        <p class="text-center mt-3">
+            Already have an account? <a href="{{ route('login') }}">Login</a>
+        </p>
     </div>
+</div>
+
 
     @include('layouts.footer')
     <!-- Link to the downloaded Bootstrap JS -->

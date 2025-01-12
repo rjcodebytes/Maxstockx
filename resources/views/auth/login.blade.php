@@ -17,63 +17,63 @@
         body {
             height: 100%;
         }
+
+        .py{
+            padding-top: 5rem;
+            padding-bottom: 3rem;
+        }
     </style>
 </head>
 
 <body>
     @include('layouts.header')
 
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header text-center">
-                        <h3>Login</h3>
-                    </div>
-                    <div class="card-body">
-
-                        <!-- Display Errors -->
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
-                        <!-- Display Success Message -->
-                        @if(session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
-                        <!-- Login Form -->
-                        <form action="{{ route('login.perform') }}" method="POST">
-                            @csrf
-                            <div class="form-group mb-3">
-                                <label for="username">Username</label>
-                                <input type="text" id="username" name="username" class="form-control" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="password">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" required>
-                            </div>
-                            <div class="form-check mb-3">
-                                <input type="checkbox" id="remember" name="remember" class="form-check-input">
-                                <label for="remember" class="form-check-label">Remember Me</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Login</button>
-                        </form>
-
-
-                    </div>
+    <div class="d-flex justify-content-center align-items-center py" >
+        <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%; border-radius: 12px;">
+            <!-- Display Errors -->
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
-            </div>
+            @endif
+
+            <!-- Display Success Message -->
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <!-- Login Form -->
+            <h3 class="text-center mb-4">Login</h3>
+            <form action="{{ route('login.perform') }}" method="POST">
+                @csrf
+                <div class="form-group mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" required
+                        placeholder="Enter your username">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" required
+                        placeholder="Enter your password">
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" id="remember" name="remember" class="form-check-input">
+                    <label for="remember" class="form-check-label">Remember Me</label>
+                </div>
+                <button type="submit" class="btn cstm-btn w-100">Login</button>
+            </form>
+            <p class="text-center mt-3">
+                Don't have an account? <a href="{{ route('register') }}">Sign up</a>
+            </p>
         </div>
     </div>
+
 
     @include('layouts.footer')
     <!-- Link to the downloaded Bootstrap JS -->
