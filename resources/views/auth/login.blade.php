@@ -54,8 +54,8 @@
                         <form action="{{ route('login.perform') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" class="form-control" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="password">Password</label>
@@ -67,6 +67,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Login</button>
                         </form>
+
 
                     </div>
                 </div>

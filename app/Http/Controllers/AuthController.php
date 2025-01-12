@@ -7,21 +7,24 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
+        // Validate the incoming request
         $request->validate([
-            'email' => 'required|email',
+            'username' => 'required|string', // Validate username instead of email
             'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        // Check credentials using username
+        $credentials = $request->only('username', 'password');
         $remember = $request->has('remember'); // Check "Remember Me" option
 
-        if (Auth::attempt($credentials, $remember)) {
+        // Attempt login
+        if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']], $remember)) {
             // Successful login
             return redirect()->route('dashboard')->with('success', 'You have logged in successfully!');
         }
 
         // Login failed
-        return redirect()->back()->withErrors(['email' => 'Invalid credentials, please try again.']);
+        return redirect()->back()->withErrors(['username' => 'Invalid credentials, please try again.']);
     }
 
     public function logout(Request $request)
