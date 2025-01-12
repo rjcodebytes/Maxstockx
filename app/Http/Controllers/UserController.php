@@ -38,5 +38,6 @@ class UserController extends Controller
 
         // Redirect or show success message
         return redirect('register')->with('success', 'User registered successfully!');
+        
     }
 }

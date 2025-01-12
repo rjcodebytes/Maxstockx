@@ -22,6 +22,10 @@
             padding-top: 5rem;
             padding-bottom: 3rem;
         }
+
+        .cstm-btn-login{
+            scale:.75;
+        }
     </style>
 </head>
 
@@ -54,19 +58,19 @@
                 @csrf
                 <div class="form-group mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" id="username" name="username" class="form-control" required
+                    <input style="transition: 0.3s" type="text" id="username" name="username" class="form-control" required
                         placeholder="Enter your username">
                 </div>
                 <div class="form-group mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" name="password" class="form-control" required
+                    <input style="transition: 0.3s" type="password" id="password" name="password" class="form-control" required
                         placeholder="Enter your password">
                 </div>
                 <div class="form-check mb-3">
-                    <input type="checkbox" id="remember" name="remember" class="form-check-input">
+                    <input style="transition: 0.3s" type="checkbox" id="remember" name="remember" class="form-check-input">
                     <label for="remember" class="form-check-label">Remember Me</label>
                 </div>
-                <button type="submit" class="btn cstm-btn w-100">Login</button>
+                <button type="submit" class="btn cstm-btn cstm-btn-login w-100">Login</button>
             </form>
             <p class="text-center mt-3">
                 Don't have an account? <a href="{{ route('register') }}">Sign up</a>
