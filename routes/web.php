@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\AdminController;
 
 Route::get('', function () {
     return view('welcome');
@@ -25,9 +25,17 @@ Route::get('login', function () {
 // Handle Login Submission
 Route::post('login', [AuthController::class, 'login'])->name('login.perform');
 // Dashboard Page (Protected)
+
 Route::get('dashboard', function () {
     return view('dashboards.dashboard');
 })->middleware('auth')->name('dashboard');
+
+
+// Admin dashboard route
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'adminlogin'])->name('admin.dashboard');
+});
+
 // Handle Logout
 Route::post('logout', [AuthController::class, 'logout'])->name('logout.perform');
 

@@ -18,13 +18,13 @@
             height: 100%;
         }
 
-        .py{
+        .py {
             padding-top: 5rem;
             padding-bottom: 3rem;
         }
 
-        .cstm-btn-login{
-            scale:.75;
+        .cstm-btn-login {
+            scale: .75;
         }
     </style>
 </head>
@@ -32,47 +32,62 @@
 <body>
     @include('layouts.header')
 
-    <div class="d-flex justify-content-center align-items-center py" >
-        <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%; border-radius: 12px;">
+    <div class="d-flex justify-content-center align-items-center py">
+        <div class="card py-2 px-4 pt-4 shadow-lg" style="max-width: 400px; width: 100%; border-radius: 12px;">
             <!-- Display Errors -->
             @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul class="mb-0">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                @foreach($errors->all() as $error)
+                    
+                        <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+                            <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+                                type="module"></script>
+                            <dotlottie-player src="https://lottie.host/a5d00a6a-4638-487a-8022-763b9b283696/UChkocIXej.lottie"
+                                background="transparent" speed="1" style="width: 40px; height: 40px;" loop
+                                autoplay></dotlottie-player>
+                            <p class="mb-0 ms-2">{{ $error}}</p>
+                            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    
+                @endforeach
             @endif
 
             <!-- Display Success Message -->
             @if(session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
+
+                <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+                    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+                        type="module"></script>
+                    <dotlottie-player src="https://lottie.host/b2106acb-574f-4c45-a88c-acb567b9368d/vdlbBHQQKF.lottie"
+                        background="transparent" speed="1" style="width: 40px; height: 40px" loop
+                        autoplay></dotlottie-player>
+                    <p class="mb-0 ms-2">{{ session('success') }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+
             @endif
 
             <!-- Login Form -->
-            <h3 class="text-center mb-4">Login</h3>
+            <h3 class="text-center mb-4 mt-2">Login</h3>
             <form action="{{ route('login.perform') }}" method="POST">
                 @csrf
                 <div class="form-group mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input style="transition: 0.3s" type="text" id="username" name="username" class="form-control" required
-                        placeholder="Enter your username">
+                    <input style="transition: 0.3s" type="text" id="username" name="username" class="form-control"
+                        required placeholder="Enter your username">
                 </div>
                 <div class="form-group mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input style="transition: 0.3s" type="password" id="password" name="password" class="form-control" required
-                        placeholder="Enter your password">
+                    <input style="transition: 0.3s" type="password" id="password" name="password" class="form-control"
+                        required placeholder="Enter your password">
                 </div>
                 <div class="form-check mb-3">
-                    <input style="transition: 0.3s" type="checkbox" id="remember" name="remember" class="form-check-input">
+                    <input style="transition: 0.3s" type="checkbox" id="remember" name="remember"
+                        class="form-check-input">
                     <label for="remember" class="form-check-label">Remember Me</label>
                 </div>
                 <button type="submit" class="btn cstm-btn cstm-btn-login w-100">Login</button>
             </form>
-            <p class="text-center mt-3">
+            <p class="text-center mt-2">
                 Don't have an account? <a href="{{ route('register') }}">Sign up</a>
             </p>
         </div>

@@ -17,6 +17,14 @@ class AuthController extends Controller
         $credentials = $request->only('username', 'password');
         $remember = $request->has('remember'); // Check "Remember Me" option
 
+        // If username is 'abhaymahule', redirect to admin dashboard
+        if ($credentials['username'] === 'abhaymahule') {
+            if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']], $remember)) {
+                // Successful login for admin
+                return redirect(route("admin.dashboard"))->with('success', 'Welcome Admin!');
+            }
+        }
+
         // Attempt login
         if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']], $remember)) {
             // Successful login

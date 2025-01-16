@@ -39,13 +39,18 @@
             <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100">
         </a>
 
-            <div class="cstnav ms-auto d-flex">
-                <!-- Buttons aligned to the right -->
-                <form action="{{ route('logout.perform') }}" method="POST" class="d-inline">
-                    @csrf
-                    <button type="submit" class="btn cstm-btn me-5">Logout</button>
-                </form>
-            </div>
+        <div class="cstnav ms-auto d-flex">
+            <!-- Buttons aligned to the right -->
+            <form action="{{ route('logout.perform') }}" method="POST" class="d-inline">
+                @csrf
+                <button type="submit" class="btn cstm-btn me-5">Logout</button>
+            </form>
+        </div>
+
+        <button id="toggle-sidebar-btn" class="btn cstm-btn navbar-toggler d-lg-none" type="button"
+            onclick="toggleSidebar()" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </div>
 </nav>
 
