@@ -17,14 +17,22 @@ class AuthController extends Controller
         $credentials = $request->only('username', 'password');
         $remember = $request->has('remember'); // Check "Remember Me" option
 
-        // If username is 'abhaymahule', redirect to admin dashboard
-        if ($credentials['username'] === 'abhaymahule') {
-            if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']], $remember)) {
-                // Successful login for admin
-                return redirect(route("admin.dashboard"))->with('success', 'Welcome Admin!');
-            }
-        }
+        // Check if the user is in the 'admin' table
+        $admin = \App\Models\Admin::where('username', $credentials['username'])->first();
 
+        if ($admin) {
+            // If the username exists in the admin table, verify the password
+            if (\Illuminate\Support\Facades\Hash::check($credentials['password'], $admin->password)) {
+                // Log the admin in (you can use a custom guard for admins if needed)
+                 Auth::guard('admin')->login($admin, $request->has('remember'));
+
+                // Redirect to the admin dashboard
+                return redirect()->route('admin.dashboard')->with('success', 'Welcome Admin!');
+            }
+
+            // Invalid password for admin
+            return redirect()->back()->withErrors(['password' => 'Invalid credentials for admin.']);
+        }
         // Attempt login
         if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']], $remember)) {
             // Successful login

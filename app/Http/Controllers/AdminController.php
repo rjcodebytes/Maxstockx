@@ -10,4 +10,9 @@ class AdminController extends Controller
     {
         return view('admin.dashboard'); // Path to the admin dashboard blade file
     }
+
+    public function manageuser()
+    {
+        return view('admin.manageusers.manageusers'); // Path to the admin dashboard blade file
+    }
 }

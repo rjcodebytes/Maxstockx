@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CourseController;
 
 Route::get('', function () {
     return view('welcome');
@@ -32,8 +33,12 @@ Route::get('dashboard', function () {
 
 
 // Admin dashboard route
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth:admin'])->group(function () {
+ 
     Route::get('/admin/dashboard', [AdminController::class, 'adminlogin'])->name('admin.dashboard');
+    Route::get('/admin/managecourses', [CourseController::class, 'managecourse'])->name('admin.managecourse');
+
+    Route::get('/admin/manageusers', [AdminController::class, 'manageuser'])->name('admin.manageuser');
 });
 
 // Handle Logout
