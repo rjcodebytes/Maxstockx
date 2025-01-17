@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourseController;
 
+
 Route::get('', function () {
     return view('welcome');
 });
@@ -39,6 +40,9 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/managecourses', [CourseController::class, 'managecourse'])->name('admin.managecourse');
 
     Route::get('/admin/manageusers', [AdminController::class, 'manageuser'])->name('admin.manageuser');
+
+    Route::get('/export-users', [AdminController::class, 'export'])->name('export.users');
+    Route::get('/export-download', [AdminController::class, 'downloadExport'])->name('export.download');
 });
 
 // Handle Logout

@@ -26,4 +26,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function getUsers()
+    {
+        return self::all(); // Fetches all user records from the database
+    }
+
 }
