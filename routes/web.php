@@ -56,6 +56,7 @@ Route::get('register', function () {
 
 
 Route::post('signup', [UserController::class, 'store'])->name('register.store');
+Route::post('check-uniqueness', [UserController::class, 'checkUniqueness'])->name('check.uniqueness');
 
 Route::get('explore', function () {
     return view('courses.courses');
