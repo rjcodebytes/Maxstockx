@@ -21,7 +21,7 @@
 
         setTimeout(function () {
             window.location.href = "{{ route('admin.manageuser') }}"; // Replace 'login' with your login route name
-        }, 100); // 600 milliseconds = 0.6 seconds
+        }, 600); // 600 milliseconds = 0.6 seconds
     </script>
 @endif
 <!-- Export Button -->

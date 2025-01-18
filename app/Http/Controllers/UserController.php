@@ -26,7 +26,10 @@ class UserController extends Controller
             'username' => 'required|string|max:255|unique:users,username',
             'email' => 'required|email|unique:users,email|max:255',
             'password' => 'required|min:3|confirmed',
+            'mobile_number' => 'required|string|digits:10|unique:users,mobile_number', // Added validation for mobile_number
         ]);
+
+        $mobile_number = '+91' . $request->mobile_number;
 
         // Create a new user
         User::create([
@@ -34,10 +37,21 @@ class UserController extends Controller
             'username' => $request->username, // Save username
             'email' => $request->email,
             'password' => Hash::make($request->password), // Hash the password
+            'mobile_number' => $mobile_number, // Save mobile number
         ]);
 
         // Redirect or show success message
         return redirect('register')->with('success', 'User registered successfully!');
-        
+
+    }
+
+    public function checkUniqueness(Request $request)
+    {
+        $field = $request->field;
+        $value = $request->value;
+
+        $exists = User::where($field, $value)->exists();
+
+        return response()->json(['unique' => !$exists]);
     }
 }

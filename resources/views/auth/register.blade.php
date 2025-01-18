@@ -64,16 +64,31 @@
                     <input style="transition: 0.3s" type="text" id="name" name="name" class="form-control" required
                         placeholder="Enter your name">
                 </div>
+
                 <div class="form-group mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input style="transition: 0.3s" type="text" id="username" name="username" class="form-control"
-                        required placeholder="Enter a username">
+                        required placeholder="Enter a username" onblur="checkFieldUniqueness('username', this.value)">
+                    <div id="username-error" class="mt-2" style="color: red; display: none;">This username is already
+                        taken.</div>
                 </div>
+
                 <div class="form-group mb-3">
                     <label for="email" class="form-label">Email address</label>
                     <input style="transition: 0.3s" type="email" id="email" name="email" class="form-control" required
-                        placeholder="Enter your email">
+                        placeholder="Enter your email" onblur="checkFieldUniqueness('email', this.value)">
+                    <div id="email-error" class="mt-2" style="color: red; display: none;">This email is already
+                        registered.</div>
                 </div>
+
+                <div class="form-group mb-3">
+                    <label for="mobile_number" class="form-label">Mobile Number</label>
+                    <input type="text" id="mobile_number" name="mobile_number" class="form-control" required
+                        placeholder="Enter your mobile number (without +91)"
+                        onblur="checkFieldUniqueness('mobile_number', this.value);">
+                    <div id="mobile_number-error" class="text-danger mt-1" style="display: none;"></div>
+                </div>
+
                 <div class="form-group mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input style="transition: 0.3s" type="password" id="password" name="password" class="form-control"
@@ -102,10 +117,17 @@
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
     <script>
+        // Initial states for field validity
+        let uniquenessStatus = {
+            username: false,
+            email: false,
+            mobile_number: false,
+            passwordValid: false, // Explicitly add this
+        };
+
         function validatePassword() {
             const password = document.getElementById("password").value;
             const requirementsDiv = document.getElementById("password-requirements");
-            const submitButton = document.getElementById("submit-btn");
 
             // Password validation criteria
             const criteria = {
@@ -122,14 +144,13 @@
                 uppercase: "At least 1 uppercase letter.",
                 lowercase: "At least 1 lowercase letter.",
                 number: "At least 1 number.",
-                symbol: "At least 1 symbol (e.g., @$!%*?&#)."
+                symbol: "At least 1 symbol (e.g., @$!%*?&#).",
             };
 
             // Check which criteria are met and update the message
             let messageHTML = '';
             let allCriteriaMet = true;
 
-            // Loop through each criterion and update accordingly
             for (let criterion in criteria) {
                 if (criteria[criterion]) {
                     messageHTML += `<span style="color:green;">✔️ ${messages[criterion]}</span><br>`;
@@ -142,8 +163,56 @@
             // Update the requirements div
             requirementsDiv.innerHTML = messageHTML;
 
-            // Enable/Disable submit button based on password validity
-            submitButton.disabled = !allCriteriaMet;
+            // Update password validation status
+            uniquenessStatus.passwordValid = allCriteriaMet;
+
+            // Update submit button state
+            updateSubmitButton();
+        }
+
+        function checkFieldUniqueness(field, value) {
+            const errorDiv = document.getElementById(`${field}-error`);
+
+            // If the value is empty, reset the status and return
+            if (value.trim() === '') {
+                errorDiv.style.display = 'none';
+                uniquenessStatus[field] = false;
+                updateSubmitButton();
+                return;
+            }
+
+            // Add prefix +91 for mobile_number validation
+            let formattedValue = value;
+            if (field === 'mobile_number') {
+                formattedValue = `+91${value.trim()}`;
+            }
+
+            // Perform AJAX request
+            fetch('{{ route("check.uniqueness") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                },
+                body: JSON.stringify({ field: field, value: formattedValue }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.unique) {
+                        errorDiv.style.display = 'none';
+                        uniquenessStatus[field] = true; // Mark as unique
+                    } else {
+                        errorDiv.style.display = 'block';
+                        errorDiv.textContent = `This ${field} is already taken.`; // Display appropriate error
+                        uniquenessStatus[field] = false; // Mark as not unique
+                    }
+                    updateSubmitButton(); // Update the submit button's state
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    uniquenessStatus[field] = false; // Disable submit button on error
+                    updateSubmitButton();
+                });
         }
 
         function checkPasswordMatch() {
@@ -153,13 +222,30 @@
 
             if (confirmPassword === "") {
                 matchMessageDiv.textContent = ""; // Clear message if confirm password is empty
+                uniquenessStatus.passwordValid = false;
             } else if (password === confirmPassword) {
                 matchMessageDiv.textContent = "Passwords match!";
                 matchMessageDiv.style.color = "green"; // Success message in green
+                uniquenessStatus.passwordValid = true;
             } else {
                 matchMessageDiv.textContent = "Passwords do not match!";
                 matchMessageDiv.style.color = "red"; // Error message in red
+                uniquenessStatus.passwordValid = false;
             }
+            updateSubmitButton();
+        }
+
+        function updateSubmitButton() {
+            const submitButton = document.getElementById("submit-btn");
+
+            // Ensure all conditions are met: uniqueness checks and password validity
+            const allConditionsMet = Object.values(uniquenessStatus).every(status => status);
+
+            // Log to debug which condition might be failing
+            console.log('Uniqueness Status:', uniquenessStatus);
+            console.log('All conditions met:', allConditionsMet);
+
+            submitButton.disabled = !allConditionsMet;
         }
     </script>
 
