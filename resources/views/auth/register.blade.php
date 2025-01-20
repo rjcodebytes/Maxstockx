@@ -43,6 +43,17 @@
                 </div>
             @endif
 
+            @if (session('error'))
+                <div class="alert alert-danger text-center">
+                    {{ session('error') }}
+                </div>
+                <script>
+                    setTimeout(function () {
+                        window.location.href = "{{ route('login') }}"; // Replace 'login' with your login route name
+                    }, 1200); // 600 milliseconds = 0.6 seconds
+                </script>
+            @endif
+
             @if (session('success'))
                 <div class="alert alert-success text-center">
                     {{ session('success') }}
