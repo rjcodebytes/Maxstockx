@@ -1,5 +1,50 @@
 @extends('admin.layouts.app')
 
-@section('dashboard')
-    <h1 class="text-white">Manage Courses</h1>
+@section('content')
+<div class="container">
+    <h2 class="text-white">Manage Courses</h2>
+    <a href="{{url('/admin/createcourses')}}" class="btn btn-primary mb-3">Add New Course</a>
+
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    @if($courses->isNotEmpty())
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Course Name</th>
+                    <th>Description</th>
+                    <th>Pricing</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($courses as $course)
+                    <tr>
+                        <td>{{ $course->course_id }}</td>
+                        <td>{{ $course->course_name }}</td>
+                        <td>{{ $course->course_description }}</td>
+                        <td>${{ number_format($course->course_pricing, 2) }}</td>
+                        <td>
+                            <a href="" class="btn btn-sm btn-success">Add Content</a>
+                            <a href="" class="btn btn-sm btn-warning">Edit Course</a>
+                            <form action="" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger"
+                                    onclick="return confirm('Are you sure?')">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <h3>No Courses Found</h3>
+    @endif
+
+</div>
+
 @endsection

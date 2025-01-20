@@ -51,12 +51,12 @@
 </head>
 
 <body>
-    @include("dashboards.layouts.headerdash")
+    @include("users.layouts.headerdash")
 
 
     <div id="layout-container" class="d-flex" style="height: 100vh;">
 
-        @include("dashboards.layouts.sidebar")
+        @include("users.layouts.sidebar")
         
         <main id="main" style="
         flex-grow:1;
@@ -72,7 +72,7 @@
     </div>
 
 
-    @include("dashboards.layouts.footer")
+    @include("users.layouts.footer")
 
     @yield('script')
 

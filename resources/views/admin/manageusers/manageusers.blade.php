@@ -6,7 +6,7 @@
         overflow-y: scroll;
     }
 </style>
-@section('dashboard')
+@section('content')
 
 <h1 class="text-white">Manage Users</h1>
 <!-- Export Button -->
