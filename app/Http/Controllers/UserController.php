@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 use App\Models\User; // Ensure this matches your user model name
 use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeMail;
+
 class UserController extends Controller
 {
     /**
@@ -32,13 +35,15 @@ class UserController extends Controller
         $mobile_number = '+91' . $request->mobile_number;
 
         // Create a new user
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'username' => $request->username, // Save username
             'email' => $request->email,
             'password' => Hash::make($request->password), // Hash the password
             'mobile_number' => $mobile_number, // Save mobile number
         ]);
+
+        Mail::to($user->email)->send(new WelcomeMail($user));
 
         // Redirect or show success message
         return redirect('register')->with('success', 'User registered successfully!');
