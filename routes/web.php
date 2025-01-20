@@ -17,27 +17,46 @@ Route::get('landing', function () {
 
 
 Route::get('login', function () {
-    if (Auth::check()) {
-        // Redirect to dashboard if user is already logged in
-        return redirect()->route('dashboard');
+    // Check if an admin is logged in
+    if (Auth::guard('admin')->check()) {
+        // Redirect to admin dashboard
+        return redirect()->route('admin.dashboard');
     }
-    return view('auth.login'); // Otherwise, show the login page
+
+    // Check if a user is logged in
+    if (Auth::guard('web')->check()) {
+        // Redirect to user dashboard
+        return redirect()->route('users.dashboard');
+    }
+
+    // Otherwise, show the login page
+    return view('auth.login');
 })->name('login');
+
 
 // Handle Login Submission
 Route::post('login', [AuthController::class, 'login'])->name('login.perform');
 // Dashboard Page (Protected)
 
-Route::get('dashboard', function () {
-    return view('dashboards.dashboard');
-})->middleware('auth')->name('dashboard');
+Route::middleware(['auth:web'])->group(function () {
+    Route::get('/users/dashboard', function () {
+        return view('users.dashboard'); // Ensure a separate user dashboard view exists
+    })->name('users.dashboard');
+
+    Route::get('explore', function () {
+        return view('courses.courses');
+    })->name('user.explore');
+});
 
 
 // Admin dashboard route
 Route::middleware(['auth:admin'])->group(function () {
- 
+
     Route::get('/admin/dashboard', [AdminController::class, 'adminlogin'])->name('admin.dashboard');
     Route::get('/admin/managecourses', [CourseController::class, 'managecourse'])->name('admin.managecourse');
+    Route::get('/admin/createcourses', [CourseController::class, 'createcourse'])->name('admin.createcourse');
+    Route::post('/admin/storecourses', [CourseController::class, 'store'])->name('admin.storecourse');
+
 
     Route::get('/admin/manageusers', [AdminController::class, 'manageuser'])->name('admin.manageuser');
 
