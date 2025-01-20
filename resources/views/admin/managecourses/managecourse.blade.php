@@ -29,10 +29,9 @@
                         <td>${{ number_format($course->course_pricing, 2) }}</td>
                         <td>
                             <a href="" class="btn btn-sm btn-success">Add Content</a>
-                            <a href="" class="btn btn-sm btn-warning">Edit Course</a>
-                            <form action="" method="POST" style="display: inline;">
+                            <a href="{{route('admin.editcourse', $course->course_id)}}" class="btn btn-sm btn-warning">Edit Course</a>
+                            <form action="{{ route('admin.deletecourse', $course->course_id) }}" method="POST" style="display: inline;">
                                 @csrf
-                                @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger"
                                     onclick="return confirm('Are you sure?')">Delete</button>
                             </form>

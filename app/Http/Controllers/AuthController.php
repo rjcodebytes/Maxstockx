@@ -24,7 +24,7 @@ class AuthController extends Controller
             // If the username exists in the admin table, verify the password
             if (\Illuminate\Support\Facades\Hash::check($credentials['password'], $admin->password)) {
                 // Log the admin in (you can use a custom guard for admins if needed)
-                 Auth::guard('admin')->login($admin, $request->has('remember'));
+                Auth::guard('admin')->login($admin, $request->has('remember'));
 
                 // Redirect to the admin dashboard
                 return redirect()->route('admin.dashboard')->with('success', 'Welcome Admin!');
@@ -45,19 +45,31 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        $user = Auth::user(); // Get the currently authenticated user
-
-        if ($user) {
-            // Clear the remember_token
-            $user->remember_token = null;
-            $user->save();
+        if (auth('admin')->check()) {
+            // Admin Logout
+            $user = auth('admin')->user(); // Get the authenticated admin
+            if ($user) {
+                $user->remember_token = null; // Clear remember token
+                $user->save();
+            }
+            auth('admin')->logout(); // Log out from admin guard
+        } elseif (auth('web')->check()) {
+            // User Logout
+            $user = auth('web')->user(); // Get the authenticated user
+            if ($user) {
+                $user->remember_token = null; // Clear remember token
+                $user->save();
+            }
+            auth('web')->logout(); // Log out from user guard
         }
 
-        Auth::logout(); // Log out the user
-        $request->session()->invalidate(); // Invalidate the session
-        $request->session()->regenerateToken(); // Regenerate the CSRF token
+        // Invalidate and regenerate session
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
         return redirect(url('login'))->with('success', 'You have been logged out successfully.');
     }
+
+
 
 }

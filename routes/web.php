@@ -56,12 +56,19 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/managecourses', [CourseController::class, 'managecourse'])->name('admin.managecourse');
     Route::get('/admin/createcourses', [CourseController::class, 'createcourse'])->name('admin.createcourse');
     Route::post('/admin/storecourses', [CourseController::class, 'store'])->name('admin.storecourse');
+    Route::post('/admin/deletecourses/{id}', [CourseController::class, 'destroy'])->name('admin.deletecourse');
+    Route::get('/admin/editcourse/{id}', [CourseController::class, 'edit'])->name('admin.editcourse');
+    Route::post('/admin/updatecourse/{id}', [CourseController::class, 'update'])->name('admin.updatecourse');
 
+    Route::post('/admin/store-content/{id}', [CourseController::class, 'storeContent'])->name('admin.storeContent');
 
     Route::get('/admin/manageusers', [AdminController::class, 'manageuser'])->name('admin.manageuser');
 
     Route::get('/export-users', [AdminController::class, 'export'])->name('export.users');
     Route::get('/export-download', [AdminController::class, 'downloadExport'])->name('export.download');
+
+    // Handle Logout
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout.perform');
 });
 
 // Handle Logout
