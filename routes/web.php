@@ -61,6 +61,8 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/admin/updatecourse/{id}', [CourseController::class, 'update'])->name('admin.updatecourse');
 
     Route::post('/admin/store-content/{id}', [CourseController::class, 'storeContent'])->name('admin.storeContent');
+    Route::post('/admin/deletecontent/{id}', [CourseController::class, 'destroyContent'])->name('admin.deletecontent');
+    Route::get('/admin/add-content/{id}',[CourseController::class,'addContent'])->name('admin.addcontent');
 
     Route::get('/admin/manageusers', [AdminController::class, 'manageuser'])->name('admin.manageuser');
 

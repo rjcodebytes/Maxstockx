@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.storecourse') }}" method="POST">
+    <form action="{{ route('admin.storecourse') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="course_name" class="form-label text-white">Course Name</label>
@@ -23,12 +23,19 @@
 
         <div class="mb-3">
             <label for="course_description" class="form-label text-white">Course Description</label>
-            <textarea class="form-control" id="course_description" name="course_description" rows="4" required></textarea>
+            <textarea class="form-control" id="course_description" name="course_description" rows="4"
+                required></textarea>
         </div>
 
         <div class="mb-3">
             <label for="course_pricing" class="form-label text-white">Course Pricing</label>
             <input type="number" class="form-control" id="course_pricing" name="course_pricing" step="0.01" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="course_thumbnail" class="form-label text-white">Course Thumbnail</label>
+            <input type="file" class="form-control" id="course_thumbnail" name="course_thumbnail" accept="image/*"
+                required>
         </div>
 
         <button type="submit" class="btn btn-primary">Create Course</button>
