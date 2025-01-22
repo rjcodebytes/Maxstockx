@@ -18,7 +18,7 @@
     @endif
 
     <div class="container">
-        <h2 class="text-white">Edit Course: {{ $course->course_name }}</h2>
+        <h3 class="text-white">Edit Course : {{ $course->course_name }}</h3>
 
         @if($errors->any())
             <div class="alert alert-danger">
@@ -31,7 +31,8 @@
         @endif
 
         <!-- Edit Course Form -->
-        <form action="{{ route('admin.updatecourse', $course->course_id) }}" method="POST">
+        <form action="{{ route('admin.updatecourse', $course->course_id) }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="course_name" class="form-label text-white">Course Name</label>
@@ -51,8 +52,23 @@
                     value="{{ $course->course_pricing }}" required>
             </div>
 
+            <div class="mb-3">
+                <label class="form-label text-white">Current Thumbnail</label><br>
+                @if ($course->course_thumbnail)
+                    <img src="data:image/jpeg;base64,{{ base64_encode($course->course_thumbnail) }}" alt="Course Thumbnail"
+                        style="max-width: 200px; max-height: 200px;">
+                @else
+                    <p>No thumbnail uploaded</p>
+                @endif
+            </div>
+
+            <div class="mb-3">
+                <label for="course_thumbnail" class="form-label text-white">Upload New Thumbnail</label>
+                <input type="file" class="form-control" id="course_thumbnail" name="course_thumbnail" accept="image/*">
+            </div>
+
             <button type="submit" class="btn btn-warning">Update Course</button>
-            <a {{--href="{{ route('courses.index') }}" --}}class="btn btn-secondary">Cancel</a>
+            <a href="{{ route('admin.managecourse') }}" class="btn btn-secondary">Cancel</a>
         </form>
 
         <hr>
@@ -91,38 +107,37 @@
         </form>
 
         <!-- Existing Content List -->
-        <h3 class="mt-4 text-white">Existing Contents</h3>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Type</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse($contents as $content)
+        @if ($contents->isNotEmpty())
+            <h3 class="mt-4 text-white">Existing Contents</h3>
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <td>{{ $content->course_content }}</td>
-                        <td>{{ $content->video_link_content ? 'Video' : 'PDF' }}</td>
-                        <td>
-                            {{--{{ route('contents.destroy', $content->id) }--}}
-                            <form action="#" method="POST"
-                                style="display: inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger"
-                                    onclick="return confirm('Are you sure?')">Delete</button>
-                            </form>
-                        </td>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Actions</th>
                     </tr>
-                @empty
-                    <tr>
-                        <td colspan="3" class="text-center">No content added yet.</td>
-                    </tr>
-                @endforelse
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach($contents as $content)
+                        <tr>
+                            <td>{{ $content->course_content }}</td>
+                            <td>{{ $content->video_link_content ? 'Video' : 'PDF' }}</td>
+                            <td>
+
+                                <form action="{{ route('admin.deletecontent', $content->id) }}" method="POST"
+                                    style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-danger"
+                                        onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <h3 class="text-white">No Content Found</h3>
+        @endif
 
     </div>
 

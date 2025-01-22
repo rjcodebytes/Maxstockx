@@ -25,11 +25,23 @@ class CourseController extends Controller
             'course_name' => 'required|string|max:255',
             'course_description' => 'required',
             'course_pricing' => 'required|numeric',
+            'course_thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image
         ]);
 
-        Course::create($request->only('course_name', 'course_description', 'course_pricing'));
+        // Store the uploaded image as binary data
+        $thumbnail = $request->file('course_thumbnail')->getContent();
+
+        // Create the course
+        Course::create([
+            'course_name' => $request->course_name,
+            'course_description' => $request->course_description,
+            'course_pricing' => $request->course_pricing,
+            'course_thumbnail' => $thumbnail,
+        ]);
+
         return redirect()->route('admin.managecourse')->with('success', 'Course created successfully.');
     }
+
 
     public function destroy($id)
     {
@@ -44,7 +56,7 @@ class CourseController extends Controller
         $course = Course::with('contents')->findOrFail($id);
         $contents = $course->contents; // Extract contents
         return view('admin.managecourses.editcourse', compact('course', 'contents'));
-    
+
     }
 
     public function update(Request $request, $id)
@@ -53,13 +65,24 @@ class CourseController extends Controller
             'course_name' => 'required|string|max:255',
             'course_description' => 'required',
             'course_pricing' => 'required|numeric',
+            'course_thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate the image (optional)
         ]);
 
         $course = Course::findOrFail($id);
-        $course->update($request->only('course_name', 'course_description', 'course_pricing'));
+
+        // Update course data
+        $data = $request->only('course_name', 'course_description', 'course_pricing');
+
+        // If a new thumbnail is uploaded, store it as binary
+        if ($request->hasFile('course_thumbnail')) {
+            $data['course_thumbnail'] = $request->file('course_thumbnail')->getContent();
+        }
+
+        $course->update($data);
 
         return redirect()->route('admin.managecourse')->with('success', 'Course updated successfully.');
     }
+
 
     public function storeContent(Request $request, $courseId)
     {
@@ -82,6 +105,20 @@ class CourseController extends Controller
 
         CourseContent::create($data);
         return redirect()->route('admin.managecourse')->with('success', 'Content added successfully.');
+    }
+
+    public function addContent($courseId){
+        $course = Course::with('contents')->findOrFail($courseId);
+        $contents = $course->contents; // Extract contents
+        return view('admin.managecourses.addcontent', compact('course','contents'));
+    }
+
+    public function destroyContent($id)
+    {
+        $content = CourseContent::findOrFail($id);
+        $content->delete();
+
+        return back()->with('success', 'Content deleted successfully.');
     }
 
 }
