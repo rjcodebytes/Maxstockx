@@ -43,6 +43,12 @@ Route::middleware(['auth:web'])->group(function () {
         return view('users.dashboard'); // Ensure a separate user dashboard view exists
     })->name('users.dashboard');
 
+    Route::get('/users/profile',[UserController::class,'userProfile'])->name('users.Profile');
+    Route::put('/users/profile/update', [UserController::class, 'updateProfile'])->name('user.update.profile');
+    Route::put('/users/profile/sendlink', [UserController::class, 'sendVerificationLink'])->name('user.send.link');
+    Route::get('/profile/verify-old-email/{token}', [UserController::class, 'verifyOldEmail'])->name('user.verify.old.email');
+    Route::post('/profile/verify-new-email', [UserController::class, 'verifyNewEmail'])->name('user.verify.new.email');
+
     Route::get('explore', function () {
         return view('courses.courses');
     })->name('user.explore');
