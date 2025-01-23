@@ -66,7 +66,7 @@
         float: left; ;
     " class="main">
             
-            @yield('course')
+            @yield('content')
 
         </main>
     </div>
