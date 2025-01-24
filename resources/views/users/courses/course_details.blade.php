@@ -109,10 +109,13 @@
             @endforeach
         </ul>
     @endif
-
-
-
-    <a href="{{ route('course.enroll', $course->course_id) }}" class="btn btn-success">Enroll Now</a>
+    {{-- Check if the user is already enrolled --}}
+    @if ($isEnrolled)
+        <a href="{{ route('course.access', $course->course_id) }}" class="btn btn-primary">Already Enrolled - Go to
+            Course</a>
+    @else
+        <a href="{{ route('course.enroll', $course->course_id) }}"class="btn btn-success">Enroll Now</a>
+    @endif
 </div>
 @endsection
 

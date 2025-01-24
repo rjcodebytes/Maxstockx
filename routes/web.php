@@ -56,6 +56,8 @@ Route::middleware(['auth:web'])->group(function () {
     //Courses Routes
     Route::get('/user/course/explore', [UserCourseController::class, 'viewcourse'])->name('course.explore');
     Route::get('/user/course/{id}', [UserCourseController::class, 'viewCourseDetails'])->name('course.details');
+    Route::get('/user/course/access/{id}', [UserCourseController::class, 'accessCourse'])->name('course.access');
+    Route::get('/users/course/enrolled', [UserCourseController::class, 'enrolledCourses'])->name('course.enrolled');
 
     //Enroll
     Route::get('/user/course/enroll/{course_id}', [PaymentController::class, 'enroll'])->name('course.enroll');

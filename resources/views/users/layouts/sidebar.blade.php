@@ -45,7 +45,7 @@
     </li>
     <li style="padding: 10px 0;">
       <i class="bi bi-journal-check " style="margin-right: 10px;"></i>
-      <a href="#"  class="hover-link">Enrolled Courses</a>
+      <a href="{{route('course.enrolled')}}"  class="hover-link">Enrolled Courses</a>
     </li>
     <li style="padding: 10px 0;">
       <i class="bi bi-receipt " style="margin-right: 10px;"></i>
