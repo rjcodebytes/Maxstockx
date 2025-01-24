@@ -3,11 +3,16 @@
 
 </style>
 @section('content')
-@if(session('success'))
-    <div class="alert alert-success w-50">
-        <h2 class="">{{ session('success') }}</h2>
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
     </div>
-   
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
 @endif
 
 <h1 class=" text-white"> hello</h1>

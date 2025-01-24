@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\UserCourseController;
+use App\Http\Controllers\PaymentController;
 
 
 Route::get('', function () {
@@ -43,15 +45,33 @@ Route::middleware(['auth:web'])->group(function () {
         return view('users.dashboard'); // Ensure a separate user dashboard view exists
     })->name('users.dashboard');
 
-    Route::get('/users/profile',[UserController::class,'userProfile'])->name('users.Profile');
+    //Profile Routes
+    Route::get('/users/profile', [UserController::class, 'userProfile'])->name('users.Profile');
     Route::put('/users/profile/update', [UserController::class, 'updateProfile'])->name('user.update.profile');
     Route::put('/users/profile/sendlink', [UserController::class, 'sendVerificationLink'])->name('user.send.link');
     Route::get('/profile/verify-old-email/{token}', [UserController::class, 'verifyOldEmail'])->name('user.verify.old.email');
     Route::post('/profile/verify-new-email', [UserController::class, 'verifyNewEmail'])->name('user.verify.new.email');
 
-    Route::get('explore', function () {
-        return view('courses.courses');
-    })->name('user.explore');
+
+    //Courses Routes
+    Route::get('/user/course/explore', [UserCourseController::class, 'viewcourse'])->name('course.explore');
+    Route::get('/user/course/{id}', [UserCourseController::class, 'viewCourseDetails'])->name('course.details');
+
+    //Enroll
+    Route::get('/user/course/enroll/{course_id}', [PaymentController::class, 'enroll'])->name('course.enroll');
+    Route::post('/user/course/payment/callback', [PaymentController::class, 'paymentCallback'])->name('payment.callback');
+
+    Route::get('/pdf/{id}', function ($id) {
+        $content = \App\Models\CourseContent::find($id); // Replace with your model
+        if ($content && $content->pdf_content) {
+            return Response::make($content->pdf_content, 200, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="document.pdf"'
+            ]);
+        }
+        abort(404); // PDF not found
+    })->name('pdf.view');
+
 });
 
 
@@ -68,7 +88,7 @@ Route::middleware(['auth:admin'])->group(function () {
 
     Route::post('/admin/store-content/{id}', [CourseController::class, 'storeContent'])->name('admin.storeContent');
     Route::post('/admin/deletecontent/{id}', [CourseController::class, 'destroyContent'])->name('admin.deletecontent');
-    Route::get('/admin/add-content/{id}',[CourseController::class,'addContent'])->name('admin.addcontent');
+    Route::get('/admin/add-content/{id}', [CourseController::class, 'addContent'])->name('admin.addcontent');
 
     Route::get('/admin/manageusers', [AdminController::class, 'manageuser'])->name('admin.manageuser');
 

@@ -23,7 +23,7 @@
                         <td>{{ $course->course_id }}</td>
                         <td>{{ $course->course_name }}</td>
                         <td>{{ $course->course_description }}</td>
-                        <td>${{ number_format($course->course_pricing, 2) }}</td>
+                        <td>₹ {{ number_format($course->course_pricing, 2) }}</td>
                         <td>
                             <a href="{{ route('admin.addcontent', $course->course_id) }}" class="btn btn-sm btn-success">Add Content</a>
                             <a href="{{route('admin.editcourse', $course->course_id)}}" class="btn btn-sm btn-warning">Edit Course</a>

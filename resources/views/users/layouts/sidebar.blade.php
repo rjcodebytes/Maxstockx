@@ -41,7 +41,7 @@
     </li>
     <li style="padding: 10px 0;">
       <i class="bi bi-book " style="margin-right: 10px;"></i>
-      <a href="#"  class="hover-link">View Courses</a>
+      <a href="{{route('course.explore')}}"  class="hover-link">Explore Courses</a>
     </li>
     <li style="padding: 10px 0;">
       <i class="bi bi-journal-check " style="margin-right: 10px;"></i>
@@ -50,10 +50,6 @@
     <li style="padding: 10px 0;">
       <i class="bi bi-receipt " style="margin-right: 10px;"></i>
       <a href="#"  class="hover-link">Order History</a>
-    </li>
-    <li style="padding: 10px 0;">
-      <i class="bi bi-gear " style="margin-right: 10px;"></i>
-      <a href="#"  class="hover-link">User Settings</a>
     </li>
     <li style="padding: 10px 0;">
       <i class="bi bi-box-arrow-right " style="margin-right: 10px;"></i>
