@@ -46,18 +46,73 @@
 
 
         }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            /* Background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #preloader img {
+            width: 120px;
+            animation: blink 1s infinite;
+        }
+
+        /* Smooth blinking animation */
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
+        }
+
+        /* Hide the main content initially */
+        body.content-hidden {
+            overflow: hidden;
+        }
+
+        body.content-hidden #layout-container {
+            display: none;
+        }
+
+        #preloader .brand-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(100px); /* Start off-screen */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
     </style>
     @yield('style')
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="{{ asset('assets/img/flogo.png') }}" alt="MaxStockx Logo">
+    </div>
+
     @include("users.layouts.headerdash")
 
 
     <div id="layout-container" class="d-flex" style="height: 100vh;">
 
         @include("users.layouts.sidebar")
-        
+
         <main id="main" style="
         flex-grow:1;
         padding: 20px 40px;
@@ -65,7 +120,7 @@
         transition: margin-left 0.3s ease, width 0.3s ease;
         float: left; ;
     " class="main">
-            
+
             @yield('content')
 
         </main>
@@ -102,6 +157,16 @@
                 sidebar.style.maxWidth = '0px'; // Ensure sidebar is hidden in mobile view
                 main.style.marginLeft = '0';
             }
+        });
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                // Hide the preloader
+                document.getElementById('preloader').style.display = 'none';
+
+                // Show the main content
+                document.body.classList.remove('content-hidden');
+            }, 2000); // Preloader duration: 6 seconds
         });
     </script>
 
