@@ -20,7 +20,7 @@
         }
 
         .cstm-btn-submit {
-            scale: .75;
+            left: 85px;
         }
     </style>
 </head>
@@ -116,12 +116,12 @@
 
                 <div class="form-group d-flex align-items-center mb-3">
                     <input class="form-check-input me-2" type="checkbox" value="" required style="transition: 0.3s" />
-                    <label class="form-check-label mb-0" for="form2Example3">
+                    <label class="form-check-label mb-0" for="form2Example3" style="font-size:15px">
                         I agree to all statements in <a href="#!">Terms of service</a>
                     </label>
                 </div>
                 
-                <button type="submit" id="submit-btn" class="btn cstm-btn cstm-btn-submit w-100"
+                <button type="submit" id="submit-btn" class="btn cstm-btn cstm-btn-submit w-50"
                     disabled>Signup</button>
             </form>
             <p class="text-center mt-3">

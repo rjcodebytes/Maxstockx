@@ -8,13 +8,15 @@ body {
 }
 
 .cstm-btn {
-    width: 140px;
+    width: 100px;
     border-radius: 30px;
     background: #8FE273;
     transition: .3s;
     font-weight: 600;
-    font-size: 1.25em;
+    font-size: 1em;
     border: 2px solid #8FE273;
+    right: 20px;
+    position: relative;
 }
 
 .cstm-btn:nth-child(2) {
@@ -69,6 +71,7 @@ body {
     right: 0;
     transform: rotate(-20deg);
 }
+
 .subheader-img-left,
 .subheader-img-right {
     position: relative;
@@ -81,8 +84,11 @@ body {
     animation: updown 3s ease infinite;
 }
 
-@keyframes updown{
-    50%{bottom: 10px; scale:1.09}
+@keyframes updown {
+    50% {
+        bottom: 10px;
+        scale: 1.09
+    }
 }
 
 
@@ -158,51 +164,50 @@ body {
 
     /* For the animated border */
     --border-angle: 0turn;
-    --main-bg: conic-gradient(
-        from var(--border-angle),
-        rgb(0, 0, 0),
-        rgb(0, 0, 0) 5%,
-        rgb(0, 0, 0) 60%,
-        rgb(0, 0, 0) 95%
-    );
-    --gradient-border: conic-gradient(
-        from var(--border-angle),
-        transparent 25%,
-        #47f4f4,
-        #62CE3E 99%,
-        transparent
-    );
+    --main-bg: conic-gradient(from var(--border-angle),
+            rgb(0, 0, 0),
+            rgb(0, 0, 0) 5%,
+            rgb(0, 0, 0) 60%,
+            rgb(0, 0, 0) 95%);
+    --gradient-border: conic-gradient(from var(--border-angle),
+            transparent 25%,
+            #47f4f4,
+            #62CE3E 99%,
+            transparent);
 
     border: solid 3px transparent;
     border-radius: 26px;
     padding: 1rem;
-    background: 
+    background:
         var(--main-bg) padding-box,
         var(--gradient-border) border-box,
         var(--main-bg) border-box;
 
     animation: bg-spin 3s linear infinite;
     background-position: center center;
-    transition: transform 1s ease-in-out; /* Smooth scaling effect */
+    transition: transform 1s ease-in-out;
+    /* Smooth scaling effect */
 }
 
 .cc:hover {
-    animation-play-state: paused; /* Pause the border animation on hover */
-    scale: 1.05; /* Scale the card slightly on hover */
+    animation-play-state: paused;
+    /* Pause the border animation on hover */
+    scale: 1.05;
+    /* Scale the card slightly on hover */
     border: 3px solid #62CE3E;
     box-shadow: 0px 35px 32px -30px #62CE3E;
 }
 
-.card-text{
+.card-text {
     color: #636363;
 }
 
-.crs-btn{
+.crs-btn {
     padding: 5px 20px;
     border-radius: 60px;
 }
 
-.btn-primary{
+.btn-primary {
     background: #62CE3E;
     color: black;
     font-weight: 500;
@@ -210,14 +215,14 @@ body {
     transition: .3s;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     background: none;
     color: rgb(255, 255, 255);
     font-weight: 500;
     border: 2px solid #62CE3E;
 }
 
-.ex{
+.ex {
     scale: 1.2;
     background: none;
     color: rgb(255, 255, 255);
@@ -225,7 +230,7 @@ body {
     border: 2px solid #62CE3E;
 }
 
-.ex:hover{
+.ex:hover {
     background: #62CE3E;
     color: black;
     font-weight: 500;
@@ -244,10 +249,11 @@ body {
     initial-value: 0turn;
 }
 
-.cc img{
+.cc img {
     height: 150px;
     border-radius: 10px;
 }
+
 /* Example to adjust spacing or layout for smaller screens */
 @media (max-width: 767px) {
     .navbar-brand img {
@@ -258,42 +264,106 @@ body {
     .navbar .btn {
         width: 100px;
         font-size: 14px;
-        padding: 8px 12px;
+    }
+
+    .navbar {
+        max-width: 100%;
+    }
+
+    .cstnav {
+        flex-direction: column;
+        padding-left: 60px;
+    }
+
+    .cstm-btn {
+        margin: 5px 0;
+        /* Add some spacing between buttons */
+    }
+
+    .navbar-toggler {
+        border: 2px solid #62CE3E;
+    }
+
+    .sticky-navbar.scrolled .navbar-brand img {
+        width: 80px;
+        height: auto;
+        transition: all 0.3s ease-in-out;
     }
 
 }
 
+/* Hamburger button spans */
+.navbar-toggler {
+    background: none;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    border: 2px solid #62CE3E;
+}
+
+.navbar-toggler span {
+    display: block;
+    width: 24px;
+    height: .12em;
+    background-color: white;
+    margin: 4px 0;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    border-radius: 10px;
+}
+
+/* Transform spans to a cross when expanded */
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+    transform: rotate(-45deg);
+    bottom: 10px;
+}
+
 /*Footer*/
-.h5{
+.h5 {
     color: #62CE3E;
 }
 
-.ftr-lnks{
+.ftr-lnks {
     color: #9a9a9a;
     transition: .3s;
 }
 
-.ftr-lnks{
+.ftr-lnks {
     color: #9a9a9a;
     transition: .3s;
 }
 
-.ftr-lnks:hover{
+.ftr-lnks:hover {
     color: #62CE3E;
 }
 
-.social:hover{
+.social:hover {
     color: #62CE3E;
 }
 
 
-.ftr-logo{
+.ftr-logo {
     position: relative;
     bottom: 20px;
     right: 50px;
 }
 
-.footer{
+.footer {
     border-top: 2px solid rgb(98, 206, 62);
 }
 
@@ -301,32 +371,26 @@ body {
     position: sticky;
     top: 0;
     z-index: 1030;
-    /* Ensure it's above other content */
     background: rgba(0, 0, 0, .5);
     backdrop-filter: blur(5px);
-    /* Add slight transparency */
     transition: all 0.3s ease-in-out;
-    /* Smooth transition */
-    /* Optional shadow for effect */
 }
 
 /* Shrink logo on scroll */
 .sticky-navbar.scrolled .navbar-brand img {
-    width: 120px;
-    height: 80px;
+    width: 80px;
+    height: auto;
     transition: all 0.3s ease-in-out;
 }
 
 .sticky-navbar.scrolled {
     /* Adjust padding on scroll */
     box-shadow: 0px 5px 5px rgba(98, 206, 62, .3);
-    padding-bottom: 30px;
-
+    padding-top: 20px;
 }
 
-.container-fluid {
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 30px;
-}
 
+.navbar-brand img {
+    position: relative;
+    left: 50px;
+}

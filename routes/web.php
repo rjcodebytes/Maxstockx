@@ -17,6 +17,10 @@ Route::get('landing', function () {
     return view('welcome');
 });
 
+Route::get('landing_new', function () {
+    return view('welcome_new');
+});
+
 
 Route::get('login', function () {
     // Check if an admin is logged in

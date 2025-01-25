@@ -1,50 +1,22 @@
-<style>
-    .sticky-navbar {
-        position: sticky;
-        top: 0;
-        z-index: 1030;
-        /* Ensure it's above other content */
-        background: rgba(0,0,0,.5);
-        backdrop-filter: blur(5px);
-        /* Add slight transparency */
-        transition: all 0.3s ease-in-out;
-        /* Smooth transition */
-        /* Optional shadow for effect */
-    }
-
-    /* Shrink logo on scroll */
-    .sticky-navbar.scrolled .navbar-brand img {
-        width: 120px;
-        height: 80px;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .sticky-navbar.scrolled {
-        /* Adjust padding on scroll */
-        box-shadow: 0px 5px 5px rgba(98, 206, 62,.3);
-        padding-bottom: 30px;
-        
-    }
-
-    .container-fluid{
-        padding-left: 50px;
-        padding-right: 50px;
-        padding-top: 30px;
-    }
-</style>
-
-<nav class="navbar pos navbar-expand-lg bg-none sticky-navbar">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{{url('landing')}}">
-            <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100">
-        </a>
+<nav class="navbar navbar-expand-lg bg-none sticky-navbar">
+    <a class="navbar-brand" href="{{url('landing')}}">
+        <img src="{{ asset('assets/img/logo.png') }}" width="120" height="80" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
         <div class="cstnav ms-auto d-flex">
             <!-- Buttons aligned to the right -->
-            <a href="{{ url('login') }}" class="btn cstm-btn me-5">Login</a>
-            <a href="{{ url('register') }}" class="btn cstm-btn me-5">Sign Up</a>
+            <a href="{{ url('login') }}" class="btn cstm-btn me-3">Login</a>
+            <a href="{{ url('register') }}" class="btn cstm-btn me-2">Sign Up</a>
         </div>
     </div>
 </nav>
+
 
 <script>
     document.addEventListener("scroll", function () {
