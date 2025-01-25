@@ -113,6 +113,14 @@
                         onkeyup="checkPasswordMatch();">
                     <div id="password-match-message" class="mt-2" style="transition: 0.3s"></div>
                 </div>
+
+                <div class="form-group d-flex align-items-center mb-3">
+                    <input class="form-check-input me-2" type="checkbox" value="" required style="transition: 0.3s" />
+                    <label class="form-check-label mb-0" for="form2Example3">
+                        I agree to all statements in <a href="#!">Terms of service</a>
+                    </label>
+                </div>
+                
                 <button type="submit" id="submit-btn" class="btn cstm-btn cstm-btn-submit w-100"
                     disabled>Signup</button>
             </form>

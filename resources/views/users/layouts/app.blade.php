@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MaxStockx-Dashboard</title>
-    <link href="{{ secure_asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ secure_asset('assets/css/custom/cstyle.css') }}">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom/cstyle.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/png" href="{{ secure_asset('assets/img/flogo.png') }}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/flogo.png') }}" sizes="16x16">
     <!-- AOS CSS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
@@ -103,7 +103,7 @@
 <body>
     <!-- Preloader -->
     <div id="preloader">
-        <img src="{{ secure_asset('assets/img/flogo.png') }}" alt="MaxStockx Logo">
+        <img src="{{ asset('assets/img/flogo.png') }}" alt="MaxStockx Logo">
     </div>
 
     @include("users.layouts.headerdash")
