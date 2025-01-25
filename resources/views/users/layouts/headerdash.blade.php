@@ -36,7 +36,7 @@
 <nav class="navbar pos navbar-expand-lg bg-none sticky-navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{url('landing')}}">
-                <img src="{{ secure_asset('assets/img/logo.png') }}" width="150" height="100">
+                <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100">
             </a>
 
             <div class="cstnav ms-auto d-flex">

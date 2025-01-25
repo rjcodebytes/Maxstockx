@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MaxStockx</title>
-    <link href="{{ secure_asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ secure_asset('assets/css/custom/cstyle.css') }}">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom/cstyle.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/png" href="{{ secure_asset('assets/img/flogo.png') }}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/flogo.png') }}" sizes="16x16">
     <!-- AOS CSS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
@@ -27,8 +27,8 @@
     <div class="container-fluid position-relative d-flex justify-content-center align-items-center mt-5"
         style="height: 500px; border:2px soid red">
         <!-- First Image on the left -->
-        <img src="{{secure_asset('assets/img/l2.png')}}" class="subheader-img-left">
-        <img src="{{secure_asset('assets/img/l1.png')}}" class="subheader-img-right">
+        <img src="{{asset('assets/img/l2.png')}}" class="subheader-img-left">
+        <img src="{{asset('assets/img/l1.png')}}" class="subheader-img-right">
 
         <!-- Headlines overlapping the images -->
 
@@ -111,7 +111,7 @@
         <div class="row justify-content-center">
 
             <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-right" style="transition:.6s">
-                <img src="{{ secure_asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
+                <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
                 <div class="card-body">
                     <h5 class="card-title">Course Title 1</h5>
                     <p class="card-text">Some quick example text to build on the card title and content.</p>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-up" style="transition:.6s">
-                <img src="{{ secure_asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
+                <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
                 <div class="card-body">
                     <h5 class="card-title">Course Title 2</h5>
                     <p class="card-text">Some quick example text to build on the card title and content.</p>
@@ -129,7 +129,7 @@
             </div>
 
             <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-left" style="transition:.6s">
-                <img src="{{ secure_asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
+                <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
                 <div class="card-body">
                     <h5 class="card-title">Course Title 3</h5>
                     <p class="card-text">Some quick example text to build on the card title and content.</p>
@@ -141,7 +141,7 @@
     @include('layouts.footer')
 
     <!-- Link to the downloaded Bootstrap JS -->
-    <script src="{{ secure_asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <!-- AOS JS -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
