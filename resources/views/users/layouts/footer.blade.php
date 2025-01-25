@@ -4,7 +4,7 @@
             <!-- Logo Section -->
             <div class="col ftr-logo text-center mb-5 me-4">
                 <a class="navbar-brand" href="">
-                    <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100" class="ms-5 mt-5">
+                    <img src="{{ secure_asset('assets/img/logo.png') }}" width="150" height="100" class="ms-5 mt-5">
                 </a>
             </div>
 
