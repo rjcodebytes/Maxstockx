@@ -17,6 +17,143 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
+    <style>
+        $pp-purple: #861a54;
+        $pp-blue: #054f7d;
+        $pp-ltblue: #00a7cf;
+        $sp-yellow: #efe348;
+
+        @media (max-width: 767px) {}
+
+        .container-fluid {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+
+        @keyframes move {
+            100% {
+                transform: translate3d(0, 0, 1px) rotate(360deg);
+            }
+        }
+
+        .background {
+            position: absolute;
+            /* Ensures it stays inside the section */
+            width: 100%;
+            /* Matches the width of the section */
+            height: 100%;
+            /* Matches the height of the section */
+            top: 0;
+            left: 0;
+            background: transparent;
+            /* Keep background transparent */
+            overflow: hidden;
+            z-index: 1;
+            /* Places it behind the content */
+        }
+
+        .background span {
+            width: 27vmin;
+            height: 27vmin;
+            border-radius: 27vmin;
+            backface-visibility: hidden;
+            position: absolute;
+            animation: move infinite linear;
+            animation-duration: 45s;
+        }
+
+        .background span:nth-child(0) {
+            color: #514601;
+            top: 48%;
+            left: 50%;
+            animation-duration: 39s;
+            animation-delay: -28s;
+            transform-origin: -14vw -13vh;
+            box-shadow: -54vmin 0 6.966887264740504vmin currentColor;
+        }
+
+        .background span:nth-child(1) {
+            color: #514601;
+            top: 94%;
+            left: 95%;
+            animation-duration: 37s;
+            animation-delay: -50s;
+            transform-origin: -23vw -15vh;
+            box-shadow: 54vmin 0 7.24381414600091vmin currentColor;
+        }
+
+        .background span:nth-child(2) {
+            color: #2b5502;
+            top: 10%;
+            left: 56%;
+            animation-duration: 17s;
+            animation-delay: -40s;
+            transform-origin: -14vw 5vh;
+            box-shadow: 54vmin 0 6.802088221970642vmin currentColor;
+        }
+
+        .background span:nth-child(3) {
+            color: #2b5502;
+            top: 48%;
+            left: 89%;
+            animation-duration: 17s;
+            animation-delay: -39s;
+            transform-origin: 23vw 4vh;
+            box-shadow: 54vmin 0 7.257582769370635vmin currentColor;
+        }
+
+        .background span:nth-child(4) {
+            color: #514601;
+            top: 90%;
+            left: 100%;
+            animation-duration: 50s;
+            animation-delay: -31s;
+            transform-origin: -15vw 6vh;
+            box-shadow: 54vmin 0 7.122838253008562vmin currentColor;
+        }
+
+        .background span:nth-child(5) {
+            color: #2b5502;
+            top: 39%;
+            left: 75%;
+            animation-duration: 53s;
+            animation-delay: -27s;
+            transform-origin: 11vw 18vh;
+            box-shadow: 54vmin 0 7.73167975050189vmin currentColor;
+        }
+
+        .background span:nth-child(6) {
+            color: #2b5502;
+            top: 62%;
+            left: 4%;
+            animation-duration: 30s;
+            animation-delay: -24s;
+            transform-origin: -15vw -4vh;
+            box-shadow: 54vmin 0 6.857558162687004vmin currentColor;
+        }
+
+        .background span:nth-child(7) {
+            color: #514601;
+            top: 54%;
+            left: 77%;
+            animation-duration: 13s;
+            animation-delay: -5s;
+            transform-origin: 0vw -4vh;
+            box-shadow: -54vmin 0 7.527553178428596vmin currentColor;
+        }
+
+        .background span:nth-child(8) {
+            color: #514601;
+            top: 50%;
+            left: 72%;
+            animation-duration: 53s;
+            animation-delay: -11s;
+            transform-origin: 24vw 12vh
+        }
+    </style>
+
 </head>
 
 <body>
@@ -24,43 +161,50 @@
     @include('layouts.header')
 
     <!--Subheader and features Section-->
-    <div class="container-fluid position-relative d-flex justify-content-center align-items-center mt-5"
-        style="height: 500px; border:2px soid red">
-        <!-- First Image on the left -->
-        <img src="{{asset('assets/img/l2.png')}}" class="subheader-img-left">
-        <img src="{{asset('assets/img/l1.png')}}" class="subheader-img-right">
+    <section class="container-fluid mb-5" style="height: 450px;position: relative; overflow: hidden;">
 
-        <!-- Headlines overlapping the images -->
+        <!-- Background Animation -->
+        <div class="background">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-        <div class="position-absolute d-flex justify-content-center align-items-center text-white"
-            style="z-index: 1; top: 14%; left: 50%; transform: translateX(-50%); width:700px">
+        <div class=" d-flex justify-content-center align-items-center text-white"
+            style="position: relative; z-index: 2;">
             <h1 class="h1 me-3" data-aos="zoom-in" data-aos-duration="1000">Master</h1>
             <h1 class="h2 me-3" data-aos="zoom-in" data-aos-duration="1000">the Stock Market</h1>
         </div>
 
-        <div class="position-absolute d-flex justify-content-center align-items-center text-white mt-4"
-            style="z-index: 1; top: 24%; left: 50%; transform: translateX(-50%); width:700px">
+        <div class=" d-flex justify-content-center align-items-center text-white "
+            style="position: relative; z-index: 2;">
             <h2 class="h3" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">Learn, Invest &
                 Succeed!
             </h2>
         </div>
 
-        <div class="position-absolute d-flex justify-content-center align-items-center text-white mt-4"
-            style="z-index: 1; top: 35%; left: 50%; transform: translateX(-50%); width:800px">
+        <div class=" d-flex justify-content-center align-items-center text-white "
+            style="position: relative; z-index: 2;">
             <h3 class="h4" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">Comprehensive courses
                 designed for beginners & experts alike !</h3>
         </div>
 
-        <div class="position-absolute d-flex justify-content-center align-items-center text-white mt-4"
-            style="z-index: 1; top: 50%; left: 50%; transform: translateX(-50%); width:800px">
-            <a href="{{ url('register') }}" class="btn bg-transparent text-white cstm-btn me-4 p-2" style="width:180px;"
-                data-aos="flip-up" data-aos-duration="1000" data-aos-delay="500">Get
+        <div class=" d-flex justify-content-center align-items-center text-white "
+            style="position: relative; z-index: 2;">
+            <a href="{{ url('register') }}" class="btn bg-transparent text-white cstm-btn me-4 p-2"
+                style="font-size:.6em" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="500">Get
                 Started</a>
-            <a href="{{ url('explore') }}" class="btn cstm-btn p-2" style="width:230px;" data-aos="flip-up"
+            <a href="{{ url('explore') }}" class="btn cstm-btn p-2" style="font-size:.6em" data-aos="flip-up"
                 data-aos-duration="1000" data-aos-delay="500">Explore Courses</a>
         </div>
 
-    </div>
+    </section>
 
     <!-- Features Section -->
     <section class="container features-section  d-flex flex-column justify-content-center align-items-center">

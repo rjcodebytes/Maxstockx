@@ -24,6 +24,45 @@
     @include('layouts.header')
 
     <!--Subheader and features Section-->
+    <div class="container-fluid position-relative d-flex justify-content-center align-items-center mt-5"
+        style="height: 500px; border:2px soid red">
+        <!-- First Image on the left -->
+        <img src="{{asset('assets/img/l2.png')}}" class="subheader-img-left">
+        <img src="{{asset('assets/img/l1.png')}}" class="subheader-img-right">
+
+        <!-- Headlines overlapping the images -->
+
+        <div class="position-absolute d-flex justify-content-center align-items-center text-white"
+            style="z-index: 1; top: 14%; left: 50%; transform: translateX(-50%); width:700px">
+            <h1 class="h1 me-3" data-aos="zoom-in" data-aos-duration="1000">Master</h1>
+            <h1 class="h2 me-3" data-aos="zoom-in" data-aos-duration="1000">the Stock Market</h1>
+        </div>
+
+        <div class="position-absolute d-flex justify-content-center align-items-center text-white mt-4"
+            style="z-index: 1; top: 24%; left: 50%; transform: translateX(-50%); width:700px">
+            <h2 class="h3" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">Learn, Invest &
+                Succeed!
+            </h2>
+        </div>
+
+        <div class="position-absolute d-flex justify-content-center align-items-center text-white mt-4"
+            style="z-index: 1; top: 35%; left: 50%; transform: translateX(-50%); width:800px">
+            <h3 class="h4" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">Comprehensive courses
+                designed for beginners & experts alike !</h3>
+        </div>
+
+        <div class="position-absolute d-flex justify-content-center align-items-center text-white mt-4"
+            style="z-index: 1; top: 50%; left: 50%; transform: translateX(-50%); width:800px">
+            <a href="{{ url('register') }}" class="btn bg-transparent text-white cstm-btn me-4 p-2" style="width:180px;"
+                data-aos="flip-up" data-aos-duration="1000" data-aos-delay="500">Get
+                Started</a>
+            <a href="{{ url('explore') }}" class="btn cstm-btn p-2" style="width:230px;" data-aos="flip-up"
+                data-aos-duration="1000" data-aos-delay="500">Explore Courses</a>
+        </div>
+
+    </div>
+
+    <!-- Features Section -->
     <section class="container features-section  d-flex flex-column justify-content-center align-items-center">
         <h2 class="text-center text-highlight  ftr" data-aos="zoom-in">Features</h2>
 
@@ -66,48 +105,39 @@
     </section>
 
 
-    <!--Subheader and features Section-->
-    <section class="container features-section  d-flex flex-column justify-content-center align-items-center">
-        <h2 class="text-center text-highlight  ftr" data-aos="zoom-in">Features</h2>
+    <!-- Courses Section New-->
+    <section class="container courses-section py-5">
+        <h2 class="text-center text-highlight mb-5 ftr" data-aos="zoom-in">Our Courses</h2>
+        <div class="row justify-content-center">
 
-        <div class="d-flex justify-content-center flex-column align-items-start">
-            <!-- Feature 1 -->
-            <div class="d-flex align-items-center feature-group">
-                <div class="numbers position-relative">
-                    <h2 data-aos="fade-left" data-aos-duration="1000" class="number-0">0</h2>
-                    <h2 data-aos="fade-left" data-aos-duration="2000" class="number-1">1</h2>
+            <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-right" style="transition:.6s">
+                <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
+                <div class="card-body">
+                    <h5 class="card-title">Course Title 1</h5>
+                    <p class="card-text">Some quick example text to build on the card title and content.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
                 </div>
-                <h2 data-aos="zoom-in" data-aos-duration="2000" class="feature-text">
-                    Empowering Learners with Knowledge that Works in the Real World.
-                </h2>
             </div>
 
-            <!-- Feature 2 -->
-            <div class="d-flex align-items-center feature-group">
-                <div class="numbers position-relative">
-                    <h2 data-aos="fade-left" data-aos-duration="1000" class="number-0">0</h2>
-                    <h2 data-aos="fade-left" data-aos-duration="2000" class="number-1">2</h2>
+            <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-up" style="transition:.6s">
+                <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
+                <div class="card-body">
+                    <h5 class="card-title">Course Title 2</h5>
+                    <p class="card-text">Some quick example text to build on the card title and content.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
                 </div>
-                <h2 data-aos="zoom-in" data-aos-duration="2000" class="feature-text ">
-                    Learn with Practical Knowledge, Backed by Expert Insights.
-                </h2>
             </div>
 
-            <!-- Feature 3 -->
-            <div class="d-flex align-items-center feature-group">
-                <div class="numbers position-relative">
-                    <h2 data-aos="fade-left" data-aos-duration="1000" class="number-0">0</h2>
-                    <h2 data-aos="fade-left" data-aos-duration="2000" class="number-1">3</h2>
+            <div class="col-md-4 mx-4 cc card course-card" data-aos="fade-left" style="transition:.6s">
+                <img src="{{ asset('assets/img/course.png') }}" class="card-img-top" alt="Course">
+                <div class="card-body">
+                    <h5 class="card-title">Course Title 3</h5>
+                    <p class="card-text">Some quick example text to build on the card title and content.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
                 </div>
-                <h2 data-aos="zoom-in" data-aos-duration="2000" class="feature-text">
-                    Where Learning Meets Expertise and Real-World Impact.
-                </h2>
             </div>
         </div>
-
-
     </section>
-    
     @include('layouts.footer')
 
     <!-- Link to the downloaded Bootstrap JS -->
