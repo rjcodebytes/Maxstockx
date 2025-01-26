@@ -250,7 +250,7 @@
 
 
     <!-- Courses Section New-->
-    <section class="container courses-section py-5">
+    {{--<section class="container courses-section py-5">
         <h2 class="text-center text-highlight mb-5 ftr" data-aos="zoom-in">Our Courses</h2>
         <div class="row justify-content-center">
 
@@ -281,7 +281,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--}}
     @include('layouts.footer')
 
     <!-- Link to the downloaded Bootstrap JS -->

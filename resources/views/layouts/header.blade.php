@@ -21,7 +21,7 @@
 <script>
     document.addEventListener("scroll", function () {
         const navbar = document.querySelector(".sticky-navbar");
-        if (window.scrollY > 50) {
+        if (window.scrollY > 20) {
             navbar.classList.add("scrolled");
         } else {
             navbar.classList.remove("scrolled");
