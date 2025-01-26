@@ -18,12 +18,11 @@
         rel="stylesheet">
 
     <style>
-        $pp-purple: #861a54;
-        $pp-blue: #054f7d;
-        $pp-ltblue: #00a7cf;
-        $sp-yellow: #efe348;
-
-        @media (max-width: 767px) {}
+        @media (max-width: 767px) {
+            .container-fluid {
+                height: 250px;
+            }
+        }
 
         .container-fluid {
             display: flex;
@@ -161,7 +160,7 @@
     @include('layouts.header')
 
     <!--Subheader and features Section-->
-    <section class="container-fluid mb-5" style="height: 450px;position: relative; overflow: hidden;">
+    <section class="container-fluid mb-2">
 
         <!-- Background Animation -->
         <div class="background">
@@ -178,8 +177,8 @@
 
         <div class=" d-flex justify-content-center align-items-center text-white"
             style="position: relative; z-index: 2;">
-            <h1 class="h1 me-3" data-aos="zoom-in" data-aos-duration="1000">Master</h1>
-            <h1 class="h2 me-3" data-aos="zoom-in" data-aos-duration="1000">the Stock Market</h1>
+            <h1 class="h1 " data-aos="zoom-in" data-aos-duration="1000">Master</h1>
+            <h1 class="h2 " data-aos="zoom-in" data-aos-duration="1000">&nbsp;the Stock Market</h1>
         </div>
 
         <div class=" d-flex justify-content-center align-items-center text-white "
@@ -207,15 +206,15 @@
     </section>
 
     <!-- Features Section -->
-    <section class="container features-section  d-flex flex-column justify-content-center align-items-center">
+    <section class="container features-section">
         <h2 class="text-center text-highlight  ftr" data-aos="zoom-in">Features</h2>
 
-        <div class="d-flex justify-content-center flex-column align-items-start">
+        <div class="d-flex justify-content-center align-items-start ftrs">
             <!-- Feature 1 -->
-            <div class="d-flex align-items-center feature-group">
+            <div class="d-flex align-items-center flex-column flex-md-column feature-group">
                 <div class="numbers position-relative">
-                    <h2 data-aos="fade-left" data-aos-duration="1000" class="number-0">0</h2>
-                    <h2 data-aos="fade-left" data-aos-duration="2000" class="number-1">1</h2>
+                    <h2 data-aos="zoom-in" data-aos-duration="1000" class="number-0">0</h2>
+                    <h2 data-aos="zoom-in" data-aos-duration="2000" class="number-1">1</h2>
                 </div>
                 <h2 data-aos="zoom-in" data-aos-duration="2000" class="feature-text">
                     Empowering Learners with Knowledge that Works in the Real World.
@@ -223,10 +222,10 @@
             </div>
 
             <!-- Feature 2 -->
-            <div class="d-flex align-items-center feature-group">
+            <div class="d-flex align-items-center flex-column feature-group">
                 <div class="numbers position-relative">
-                    <h2 data-aos="fade-left" data-aos-duration="1000" class="number-0">0</h2>
-                    <h2 data-aos="fade-left" data-aos-duration="2000" class="number-1">2</h2>
+                    <h2 data-aos="zoom-in" data-aos-duration="1000" class="number-0">0</h2>
+                    <h2 data-aos="zoom-in" data-aos-duration="2000" class="number-1">2</h2>
                 </div>
                 <h2 data-aos="zoom-in" data-aos-duration="2000" class="feature-text ">
                     Learn with Practical Knowledge, Backed by Expert Insights.
@@ -234,10 +233,10 @@
             </div>
 
             <!-- Feature 3 -->
-            <div class="d-flex align-items-center feature-group">
+            <div class="d-flex align-items-center flex-column feature-group">
                 <div class="numbers position-relative">
-                    <h2 data-aos="fade-left" data-aos-duration="1000" class="number-0">0</h2>
-                    <h2 data-aos="fade-left" data-aos-duration="2000" class="number-1">3</h2>
+                    <h2 data-aos="zoom-in" data-aos-duration="1000" class="number-0">0</h2>
+                    <h2 data-aos="zoom-in" data-aos-duration="2000" class="number-1">3</h2>
                 </div>
                 <h2 data-aos="zoom-in" data-aos-duration="2000" class="feature-text">
                     Where Learning Meets Expertise and Real-World Impact.

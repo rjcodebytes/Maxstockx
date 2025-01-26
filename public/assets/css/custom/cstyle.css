@@ -110,12 +110,16 @@ body {
     /* Height for positioning */
 }
 
+.number-0,
+.number-1 {
+    font-size: 90px;
+}
+
 /* First number */
 .numbers .number-0 {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 6rem;
     font-weight: 800;
     opacity: 0;
     color: transparent;
@@ -129,7 +133,6 @@ body {
     position: absolute;
     top: 30px;
     left: 45px;
-    font-size: 6rem;
     font-weight: 700;
     opacity: 0;
     /* For animation */
@@ -143,7 +146,7 @@ body {
 .feature-text {
     position: relative;
     font-size: 1.5rem;
-    top: 45px;
+    top: 70px;
     opacity: 0;
     font-style: italic;
     /* For animation */
@@ -153,7 +156,12 @@ body {
     /* Align text to the left of the numbers */
 }
 
-
+.features-section {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .cc {
@@ -263,16 +271,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     cursor: pointer;
-    border: 2px solid #62CE3E;
+    box-shadow: 0px 0px 5px 5px #62CE3E;
+    transition:.3s
 }
 
 .navbar-toggler span {
     display: block;
     width: 24px;
-    height: .12em;
+    height: 2.5px;
+    /* Adjust the height for better visibility */
     background-color: white;
     margin: 4px 0;
     transition: all 0.3s ease-in-out;
@@ -280,19 +290,22 @@ body {
     border-radius: 10px;
 }
 
-/* Transform spans to a cross when expanded */
+/* Hamburger to cross transition */
 .navbar-toggler:not(.collapsed) span:nth-child(1) {
     transform: rotate(45deg);
     top: 10px;
+    /* Adjusted to place properly when toggled */
 }
 
 .navbar-toggler:not(.collapsed) span:nth-child(2) {
     opacity: 0;
+    /* Hide the middle span */
 }
 
 .navbar-toggler:not(.collapsed) span:nth-child(3) {
     transform: rotate(-45deg);
-    bottom: 10px;
+    bottom: 11px;
+    /* Adjusted to place properly when toggled */
 }
 
 /*Footer*/
@@ -387,7 +400,7 @@ body {
     }
 
     .navbar-toggler {
-        border: 2px solid #62CE3E;
+        box-shadow: 0px 0px 5px 5px #62CE3E
     }
 
     .sticky-navbar.scrolled .navbar-brand img {
@@ -396,20 +409,66 @@ body {
         transition: all 0.3s ease-in-out;
     }
 
-    .h1,.h2{
-        font-size: 30px;
-    }
-
-    .h3{
+    .h1,
+    .h2 {
         font-size: 20px;
     }
 
-    .h4{
-        font-size: 10px;
+    .h3 {
+        font-size: 15px;
+    }
+
+    .h4 {
+        font-size: 9px;
+    }
+
+    .ftr {
+        font-size: 40px;
+    }
+
+    .number-0,
+    .number-1 {
+        font-size: 60px;
+    }
+
+    .numbers {
+        left: 20px !important;
+    }
+
+    .number-1 {
+        left: 26px !important;
+        top: 20px !important;
+    }
+
+    .feature-text {
+        font-size: 15px;
+        right: 10px;
+        top: 20px;
+    }
+
+    .feature-group {
+        flex-direction: row !important;
+        /* Switch to horizontal direction */
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .numbers {
+        flex-direction: row !important;
+        /* Ensure numbers align horizontally */
+        margin-right: 10px;
+        /* Optional spacing */
+    }
+
+    .ftrs {
+        flex-direction: column;
     }
 
 }
 
-.container-fluid{
+.container-fluid {
     flex-wrap: wrap;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
 }

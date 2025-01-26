@@ -8,7 +8,7 @@
         <span></span>
         <span></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarNav" style=" transition:.3s">
         <div class="cstnav ms-auto d-flex">
             <!-- Buttons aligned to the right -->
             <a href="{{ url('login') }}" class="btn cstm-btn me-3">Login</a>
@@ -16,7 +16,6 @@
         </div>
     </div>
 </nav>
-
 
 <script>
     document.addEventListener("scroll", function () {
@@ -27,4 +26,14 @@
             navbar.classList.remove("scrolled");
         }
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const navbarToggler = document.querySelector(".navbar-toggler");
+
+        // Ensure the default state is hamburger
+        if (!navbarToggler.classList.contains('collapsed')) {
+            navbarToggler.classList.add('collapsed');
+        }
+    });
+
 </script>

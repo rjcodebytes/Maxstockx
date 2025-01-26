@@ -2,9 +2,9 @@
     <div class="container">
         <div class="d-flex justify-content-around flex-wrap align-items-start mt-5">
             <!-- Logo Section -->
-            <div class="col ftr-logo text-center mb-5 me-4">
+            <div class="col ftr-logo text-center mb-5">
                 <a class="navbar-brand" href="">
-                    <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100" class="ms-5 mt-5">
+                    <img src="{{ asset('assets/img/logo.png') }}" width="120" height="80" class=" mt-5">
                 </a>
             </div>
 
