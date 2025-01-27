@@ -33,8 +33,8 @@
     }
 </style>
 
-<nav class="navbar pos navbar-expand-lg bg-none sticky-navbar">
-        <div class="container-fluid">
+<nav class="navbar pos navbar-expand-lg bg-none sticky-navbar" style="height:100px">
+        <div class="">
             <a class="navbar-brand" href="{{url('landing')}}">
                 <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100">
             </a>
