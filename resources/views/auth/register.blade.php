@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaxStockx-Sign</title>
+    <title>MaxStockx</title>
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom/cstyle.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,122 +16,213 @@
 
     <style>
         body {
-            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
         }
 
         .cstm-btn-submit {
             left: 85px;
+        }
+
+        span {
+            height: 500px;
+            width: 3px;
+            border: 2px solid green
+        }
+
+        .card {
+            scale: .8;
+            background: none;
+            color: white;
+            border: 2px solid green;
+            border-radius: 12px;
+        }
+
+        .form-control {
+            background: none;
+            border: none;
+            border-bottom: 2px solid green;
+            color: green;
+        }
+
+        .form-control::placeholder {
+            color: gray;
+        }
+
+        .form-control:focus {
+            background: none;
+            box-shadow: none;
+            border-bottom: 2px solid white;
+            color: gray;
+        }
+
+        .form-control:focus::placeholder {
+            color: gray
+        }
+
+        .form-check-input:checked {
+            background-color: green;
+            border-color: white;
+            box-shadow: 0px 0px 0px 2px rgba(64, 235, 12, 1);
+        }
+
+        .sgnrt {
+            text-decoration: none;
+            color: green;
+            transition: .3s;
+        }
+
+        .sgnrt:hover {
+            color: blue
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                flex-direction: column;
+            }
+
+            img {
+                display: none;
+            }
+
+            span {
+                display: none;
+            }
+
+            .card {
+                scale: .5;
+                width: 400px !important;
+            }
+
+            body{
+                height: 50vh !important;
+            }
+
         }
     </style>
 </head>
 
 <body>
 
-    @include('layouts.header')
 
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
-        <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%; border-radius: 12px;">
-            <!-- Display Errors -->
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul class="mb-0">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+    <div class="container d-flex justify-content-evenly align-items-center">
+        <div>
+            <a href="{{url('landing')}}">
+                <img src="{{ asset('assets/img/logo.png') }}" width="250" height="200">
+            </a>
+        </div>
 
-            @if (session('error'))
-                <div class="alert alert-danger text-center">
-                    {{ session('error') }}
-                </div>
-                <script>
-                    setTimeout(function () {
-                        window.location.href = "{{ route('login') }}"; // Replace 'login' with your login route name
-                    }, 1200); // 600 milliseconds = 0.6 seconds
-                </script>
-            @endif
+        <span></span>
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%; border-radius: 12px;">
+                <!-- Display Errors -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
-            @if (session('success'))
-                <div class="alert alert-success text-center">
-                    {{ session('success') }}
-                </div>
-                <script>
-                    setTimeout(function () {
-                        window.location.href = "{{ route('login') }}"; // Replace 'login' with your login route name
-                    }, 1200); // 600 milliseconds = 0.6 seconds
-                </script>
-            @endif
+                @if (session('error'))
+                    <div class="alert alert-danger text-center">
+                        {{ session('error') }}
+                    </div>
+                    <script>
+                        setTimeout(function () {
+                            window.location.href = "{{ route('login') }}"; // Replace 'login' with your login route name
+                        }, 1200); // 600 milliseconds = 0.6 seconds
+                    </script>
+                @endif
+
+                @if (session('success'))
+                    <div class="alert alert-success text-center">
+                        {{ session('success') }}
+                    </div>
+                    <script>
+                        setTimeout(function () {
+                            window.location.href = "{{ route('login') }}"; // Replace 'login' with your login route name
+                        }, 1200); // 600 milliseconds = 0.6 seconds
+                    </script>
+                @endif
 
 
-            <!-- Signup Form -->
-            <h3 class="text-center mb-4">Signup</h3>
-            <form action="{{ route('register.store') }}" method="POST">
-                @csrf
-                <div class="form-group mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input style="transition: 0.3s" type="text" id="name" name="name" class="form-control" required
-                        placeholder="Enter your name">
-                </div>
+                <!-- Signup Form -->
+                <h3 class="text-center mb-4">Signup</h3>
+                <form action="{{ route('register.store') }}" method="POST">
+                    @csrf
+                    <div class="form-group mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input style="transition: 0.3s" type="text" id="name" name="name" class="form-control" required
+                            placeholder="Enter your name">
+                    </div>
 
-                <div class="form-group mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input style="transition: 0.3s" type="text" id="username" name="username" class="form-control"
-                        required placeholder="Enter a username" onblur="checkFieldUniqueness('username', this.value)">
-                    <div id="username-error" class="mt-2" style="color: red; display: none;">This username is already
-                        taken.</div>
-                </div>
+                    <div class="form-group mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input style="transition: 0.3s" type="text" id="username" name="username" class="form-control"
+                            required placeholder="Enter a username"
+                            onblur="checkFieldUniqueness('username', this.value)">
+                        <div id="username-error" class="mt-2" style="color: red; display: none;">This username is
+                            already
+                            taken.</div>
+                    </div>
 
-                <div class="form-group mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input style="transition: 0.3s" type="email" id="email" name="email" class="form-control" required
-                        placeholder="Enter your email" onblur="checkFieldUniqueness('email', this.value)">
-                    <div id="email-error" class="mt-2" style="color: red; display: none;">This email is already
-                        registered.</div>
-                </div>
+                    <div class="form-group mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input style="transition: 0.3s" type="email" id="email" name="email" class="form-control"
+                            required placeholder="Enter your email" onblur="checkFieldUniqueness('email', this.value)">
+                        <div id="email-error" class="mt-2" style="color: red; display: none;">This email is already
+                            registered.</div>
+                    </div>
 
-                <div class="form-group mb-3">
-                    <label for="mobile_number" class="form-label">Mobile Number</label>
-                    <input type="text" id="mobile_number" name="mobile_number" class="form-control" required
-                        placeholder="Enter your mobile number (without +91)"
-                        onblur="checkFieldUniqueness('mobile_number', this.value);">
-                    <div id="mobile_number-error" class="text-danger mt-1" style="display: none;"></div>
-                </div>
+                    <div class="form-group mb-3">
+                        <label for="mobile_number" class="form-label">Mobile Number</label>
+                        <input type="text" id="mobile_number" name="mobile_number" class="form-control" required
+                            placeholder="Enter your mobile number (without +91)"
+                            onblur="checkFieldUniqueness('mobile_number', this.value);">
+                        <div id="mobile_number-error" class="text-danger mt-1" style="display: none;"></div>
+                    </div>
 
-                <div class="form-group mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input style="transition: 0.3s" type="password" id="password" name="password" class="form-control"
-                        required placeholder="Enter a password" onkeyup="validatePassword(); checkPasswordMatch();">
-                    <div id="password-requirements" class="mt-2" style="transition: 0.3s"></div>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="password_confirmation" class="form-label">Confirm Password</label>
-                    <input style="transition: 0.3s" type="password" id="password_confirmation"
-                        name="password_confirmation" class="form-control" required placeholder="Confirm your password"
-                        onkeyup="checkPasswordMatch();">
-                    <div id="password-match-message" class="mt-2" style="transition: 0.3s"></div>
-                </div>
+                    <div class="form-group mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input style="transition: 0.3s" type="password" id="password" name="password"
+                            class="form-control" required placeholder="Enter a password"
+                            onkeyup="validatePassword(); checkPasswordMatch();">
+                        <div id="password-requirements" class="mt-2" style="transition: 0.3s"></div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password_confirmation" class="form-label">Confirm Password</label>
+                        <input style="transition: 0.3s" type="password" id="password_confirmation"
+                            name="password_confirmation" class="form-control" required
+                            placeholder="Confirm your password" onkeyup="checkPasswordMatch();">
+                        <div id="password-match-message" class="mt-2" style="transition: 0.3s"></div>
+                    </div>
 
-                <div class="form-group d-flex align-items-center mb-3">
-                    <input class="form-check-input me-2" type="checkbox" value="" required style="transition: 0.3s" />
-                    <label class="form-check-label mb-0" for="form2Example3" style="font-size:15px">
-                        I agree to all statements in <a href="#!">Terms of service</a>
-                    </label>
-                </div>
-                
-                <button type="submit" id="submit-btn" class="btn cstm-btn cstm-btn-submit w-50"
-                    disabled>Signup</button>
-            </form>
-            <p class="text-center mt-3">
-                Already have an account? <a href="{{ route('login') }}">Login</a>
-            </p>
+                    <div class="form-group d-flex align-items-center mb-3">
+                        <input class="form-check-input me-2" type="checkbox" value="" required
+                            style="transition: 0.3s" />
+                        <label class="form-check-label mb-0" for="form2Example3" style="font-size:15px">
+                            I agree to all statements in <a class="sgnrt" href="#!">Terms of service</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="btn cstm-btn cstm-btn-submit w-50"
+                        disabled>Signup</button>
+                </form>
+                <p class="text-center mt-3">
+                    Already have an account? <a class="sgnrt" href="{{ route('login') }}">Login</a>
+                </p>
+            </div>
         </div>
     </div>
 
 
-    @include('layouts.footer')
     <!-- Link to the downloaded Bootstrap JS -->
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 

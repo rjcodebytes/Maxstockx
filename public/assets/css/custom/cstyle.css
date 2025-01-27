@@ -466,9 +466,3 @@ body {
 
 }
 
-.container-fluid {
-    flex-wrap: wrap;
-    height: 450px;
-    position: relative;
-    overflow: hidden;
-}

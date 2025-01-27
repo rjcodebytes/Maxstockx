@@ -31,6 +31,24 @@
         padding-right: 50px;
         padding-top: 30px;
     }
+
+    /* Hamburger to cross transition */
+    .navbar-toggler:not(.collapsed) span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 10px;
+        /* Adjusted to place properly when toggled */
+    }
+
+    .navbar-toggler:not(.collapsed) span:nth-child(2) {
+        opacity: 0;
+        /* Hide the middle span */
+    }
+
+    .navbar-toggler:not(.collapsed) span:nth-child(3) {
+        transform: rotate(-45deg);
+        bottom: 11px;
+        /* Adjusted to place properly when toggled */
+    }
 </style>
 
 <nav class="navbar pos navbar-expand-lg bg-none sticky-navbar">
@@ -47,10 +65,14 @@
             </form>
         </div>
 
-        <button id="toggle-sidebar-btn" class="btn cstm-btn navbar-toggler d-lg-none" type="button"
-            onclick="toggleSidebar()" aria-label="Toggle navigation">
-            <i class="fa-solid fa-bars"></i>
+        <button class="navbar-toggler me-3" id="toggle-sidebar-btn" type="button" 
+            data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
+
     </div>
 </nav>
 
@@ -61,6 +83,15 @@
             navbar.classList.add("scrolled");
         } else {
             navbar.classList.remove("scrolled");
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const navbarToggler = document.querySelector(".navbar-toggler");
+
+        // Ensure the default state is hamburger
+        if (!navbarToggler.classList.contains('collapsed')) {
+            navbarToggler.classList.add('collapsed');
         }
     });
 </script>
