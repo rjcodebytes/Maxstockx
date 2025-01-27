@@ -20,7 +20,7 @@
     <style>
         @media (max-width: 767px) {
             .container-fluid {
-                height: 250px;
+                height: 250px !important;
             }
         }
 
@@ -29,6 +29,13 @@
             justify-content: center;
             flex-direction: column;
 
+        }
+
+        .container-fluid {
+            flex-wrap: wrap;
+            height: 450px;
+            position: relative;
+            overflow: hidden;
         }
 
         @keyframes move {
@@ -194,7 +201,7 @@
                 designed for beginners & experts alike !</h3>
         </div>
 
-        <div class=" d-flex justify-content-center align-items-center text-white "
+        <div class=" d-flex justify-content-center align-items-center text-white mt-3"
             style="position: relative; z-index: 2;">
             <a href="{{ url('register') }}" class="btn bg-transparent text-white cstm-btn me-4 p-2"
                 style="font-size:.6em" data-aos="flip-up" data-aos-duration="1000" data-aos-delay="500">Get

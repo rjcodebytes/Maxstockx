@@ -14,7 +14,7 @@
         height: 100vh;
         position: relative;
         z-index: 1000;
-    ">
+    " class="">
   <ul style="list-style: none; padding: 20px 40px; margin: 0;">
     <li style="padding: 10px 0;">
       <i class="bi bi-grid" style="margin-right: 10px;"></i>

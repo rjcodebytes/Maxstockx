@@ -2,7 +2,7 @@
     <a class="navbar-brand" href="{{url('landing')}}">
         <img src="{{ asset('assets/img/logo.png') }}" width="120" height="80" alt="Logo">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+    <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
         <span></span>
