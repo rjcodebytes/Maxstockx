@@ -1,3 +1,11 @@
+<style>
+   @media (max-width: 767px){
+        p{
+          font-size: 10px;
+        }
+    }
+</style>
+
 @if (!empty(session('success')))
   <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>

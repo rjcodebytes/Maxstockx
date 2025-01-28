@@ -1,63 +1,70 @@
 <style>
-    .sticky-navbar {
-        position: sticky;
-        top: 0;
-        z-index: 1030;
-        /* Ensure it's above other content */
-        background: rgba(0, 0, 0, .5);
-        backdrop-filter: blur(5px);
-        /* Add slight transparency */
+    @media (max-width: 767px) {
+        .btn {
+            width: 35px !important;
+        }
+    }
+
+    /* Hamburger to cross transition */
+
+    .cnvtg {
+        background: none;
+        padding: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 35px;
+        width: 35px;
+        cursor: pointer;
+        box-shadow: 0px 0px 5px 5px #62CE3E;
+        transition: .3s
+    }
+
+    .cnvtg span {
+        display: block;
+        width: 24px;
+        height: 2.5px;
+        /* Adjust the height for better visibility */
+        background-color: white;
+        margin: 4px 0;
         transition: all 0.3s ease-in-out;
-        /* Smooth transition */
-        /* Optional shadow for effect */
+        position: relative;
+        border-radius: 10px;
     }
 
-    /* Shrink logo on scroll */
-    .sticky-navbar.scrolled .navbar-brand img {
-        width: 120px;
-        height: 80px;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .sticky-navbar.scrolled {
-        /* Adjust padding on scroll */
-        box-shadow: 0px 5px 5px rgba(98, 206, 62, .3);
-        padding-bottom: 30px;
-
-    }
-
-    .container-fluid {
-        padding-left: 50px;
-        padding-right: 50px;
-        padding-top: 30px;
+    .cnvtg:hover {
+        background-color: black;
     }
 </style>
 
-<nav class="navbar pos navbar-expand-lg bg-none sticky-navbar" style="height:100px">
-        <div class="">
-            <a class="navbar-brand" href="{{url('landing')}}">
-                <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100">
-            </a>
+<nav class="navbar  navbar-expand-lg bg-none sticky-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{url('landing')}}">
+            <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100">
+        </a>
 
-            <div class="cstnav ms-auto d-flex">
-                <!-- Buttons aligned to the right -->
-                <button id="toggle-sidebar-btn" class="btn cstm-btn navbar-toggler d-lg-none" type="button" onclick="toggleSidebar()"
-                    aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+        <!-- Sidebar Toggle Button -->
+        <button class="btn cnvtg btn-outline-light me-3" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+</nav>
 
 <script>
     document.addEventListener("scroll", function () {
-            const navbar = document.querySelector(".sticky-navbar");
-            if (window.scrollY > 50) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
-            }
-        });
+        const navbar = document.querySelector(".sticky-navbar");
+        if (window.scrollY > 10) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
 
-        
+
 </script>

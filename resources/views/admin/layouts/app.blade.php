@@ -20,32 +20,7 @@
         rel="stylesheet">
 
     <style>
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            #sidebar {
-                max-width: 0;
-                /* Sidebar hidden in mobile view */
-            }
 
-            #main {
-                margin-left: 0;
-                /* Main takes full width in mobile view */
-            }
-        }
-
-        @media (min-width: 769px) {
-            #sidebar {
-                max-width: 250px;
-                /* Sidebar visible in desktop view */
-            }
-
-            #main {
-                margin-left: 0px;
-                /* Main starts next to the sidebar */
-            }
-
-
-        }
     </style>
     @yield('style')
 </head>
@@ -57,7 +32,7 @@
     <div id="layout-container" class="d-flex" style="height: 100vh;">
 
         @include("admin.layouts.sidebar")
-        
+
         <main id="main" style="
         flex-grow:1;
         padding: 20px 40px;
@@ -65,7 +40,7 @@
         transition: margin-left 0.3s ease, width 0.3s ease;
         float: left; ;
     " class="main">
-            
+
             @yield('content')
 
         </main>
@@ -75,36 +50,8 @@
     @include("admin.layouts.footer")
 
     @yield('script')
-
-    <script>
-        const toggleButton = document.getElementById('toggle-sidebar-btn');
-        const sidebar = document.getElementById('sidebar');
-        const main = document.getElementById('main');
-
-        toggleButton.addEventListener('click', () => {
-            if (sidebar.style.maxWidth === '0px' || sidebar.style.maxWidth === '') {
-                // Show sidebar
-                sidebar.style.maxWidth = '250px';
-                main.style.marginLeft = '0px';
-            } else {
-                // Hide sidebar
-                sidebar.style.maxWidth = '0px';
-                main.style.marginLeft = '0';
-            }
-        });
-
-        // Ensure correct layout when resizing the window
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 769) {
-                sidebar.style.maxWidth = '250px'; // Ensure sidebar is visible in desktop view
-                main.style.marginLeft = '0px';
-            } else {
-                sidebar.style.maxWidth = '0px'; // Ensure sidebar is hidden in mobile view
-                main.style.marginLeft = '0';
-            }
-        });
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 
 </html>
