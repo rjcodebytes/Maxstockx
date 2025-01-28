@@ -1,73 +1,53 @@
 <style>
-    .sticky-navbar {
-        position: sticky;
-        top: 0;
-        z-index: 1030;
-        /* Ensure it's above other content */
-        background: rgba(0, 0, 0, .5);
-        backdrop-filter: blur(5px);
-        /* Add slight transparency */
-        transition: all 0.3s ease-in-out;
-        /* Smooth transition */
-        /* Optional shadow for effect */
-    }
-
-    /* Shrink logo on scroll */
-    .sticky-navbar.scrolled .navbar-brand img {
-        width: 120px;
-        height: 80px;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .sticky-navbar.scrolled {
-        /* Adjust padding on scroll */
-        box-shadow: 0px 5px 5px rgba(98, 206, 62, .3);
-        padding-bottom: 30px;
-
-    }
-
-    .container-fluid {
-        padding-left: 50px;
-        padding-right: 50px;
-        padding-top: 30px;
+    @media (max-width: 767px){
+        .btn{width: 35px !important;}
     }
 
     /* Hamburger to cross transition */
-    .navbar-toggler:not(.collapsed) span:nth-child(1) {
-        transform: rotate(45deg);
-        top: 10px;
-        /* Adjusted to place properly when toggled */
+
+    .cnvtg {
+        background: none;
+        padding: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 35px;
+        width: 35px;
+        cursor: pointer;
+        box-shadow: 0px 0px 5px 5px #62CE3E;
+        transition: .3s
     }
 
-    .navbar-toggler:not(.collapsed) span:nth-child(2) {
-        opacity: 0;
-        /* Hide the middle span */
+    .cnvtg span {
+        display: block;
+        width: 24px;
+        height: 2.5px;
+        /* Adjust the height for better visibility */
+        background-color: white;
+        margin: 4px 0;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        border-radius: 10px;
     }
 
-    .navbar-toggler:not(.collapsed) span:nth-child(3) {
-        transform: rotate(-45deg);
-        bottom: 11px;
-        /* Adjusted to place properly when toggled */
+    .cnvtg:hover{
+        background-color: black ;
     }
+
+    
 </style>
 
-<nav class="navbar pos navbar-expand-lg bg-none sticky-navbar">
+<nav class="navbar  navbar-expand-lg bg-none sticky-navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{url('landing')}}">
             <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100">
         </a>
 
-        <div class="cstnav ms-auto d-flex">
-            <!-- Buttons aligned to the right -->
-            <form action="{{ route('logout.perform') }}" method="POST" class="d-inline">
-                @csrf
-                <button type="submit" class="btn cstm-btn me-5">Logout</button>
-            </form>
-        </div>
-
-        <button class="navbar-toggler me-3" id="toggle-sidebar-btn" type="button" 
-            data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-            aria-label="Toggle navigation">
+        <!-- Sidebar Toggle Button -->
+        <button class="btn cnvtg btn-outline-light me-3" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
             <span></span>
             <span></span>
             <span></span>
@@ -86,12 +66,4 @@
         }
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const navbarToggler = document.querySelector(".navbar-toggler");
-
-        // Ensure the default state is hamburger
-        if (!navbarToggler.classList.contains('collapsed')) {
-            navbarToggler.classList.add('collapsed');
-        }
-    });
 </script>

@@ -84,6 +84,8 @@
     }
 
     @media only screen and (max-width: 400px) {
-        .scroll-container{width: 300px;}
+        .scroll-container {
+            width: 300px;
+        }
     }
 </style>

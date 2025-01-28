@@ -20,33 +20,6 @@
         rel="stylesheet">
 
     <style>
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            #sidebar {
-                max-width: 0;
-                /* Sidebar hidden in mobile view */
-            }
-
-            #main {
-                margin-left: 0;
-                /* Main takes full width in mobile view */
-            }
-        }
-
-        @media (min-width: 769px) {
-            #sidebar {
-                max-width: 250px;
-                /* Sidebar visible in desktop view */
-            }
-
-            #main {
-                margin-left: 0px;
-                /* Main starts next to the sidebar */
-            }
-
-
-        }
-
         #preloader {
             position: fixed;
             top: 0;
@@ -93,7 +66,8 @@
             font-size: 24px;
             color: #fff;
             opacity: 0;
-            transform: translateY(100px); /* Start off-screen */
+            transform: translateY(100px);
+            /* Start off-screen */
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
     </style>
@@ -102,10 +76,10 @@
 
 <body>
     <!-- Preloader -->
-    <div id="preloader">
+     <div id="preloader">
         <img src="{{ asset('assets/img/flogo.png') }}" alt="MaxStockx Logo">
     </div>
-
+    
     @include("users.layouts.headerdash")
 
 
@@ -131,34 +105,8 @@
 
     @yield('script')
 
+    
     <script>
-        const toggleButton = document.getElementById('toggle-sidebar-btn');
-        const sidebar = document.getElementById('sidebar');
-        const main = document.getElementById('main');
-
-        toggleButton.addEventListener('click', () => {
-            if (sidebar.style.maxWidth === '0px' || sidebar.style.maxWidth === '') {
-                // Show sidebar
-                sidebar.style.maxWidth = '250px';
-                main.style.marginLeft = '0px';
-            } else {
-                // Hide sidebar
-                sidebar.style.maxWidth = '0px';
-                main.style.marginLeft = '0';
-            }
-        });
-
-        // Ensure correct layout when resizing the window
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 769) {
-                sidebar.style.maxWidth = '250px'; // Ensure sidebar is visible in desktop view
-                main.style.marginLeft = '0px';
-            } else {
-                sidebar.style.maxWidth = '0px'; // Ensure sidebar is hidden in mobile view
-                main.style.marginLeft = '0';
-            }
-        });
-
         window.addEventListener('load', () => {
             setTimeout(() => {
                 // Hide the preloader
@@ -169,7 +117,10 @@
             }, 2000); // Preloader duration: 6 seconds
         });
     </script>
+    
 
+    <!-- Bootstrap CSS and JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
