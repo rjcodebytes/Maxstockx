@@ -15,5 +15,5 @@
     </div>
 @endif
 
-<h1 class=" text-white"> hello</h1>
+<h1 class=" text-white">Welcome, Future Trader</h1>
 @endsection

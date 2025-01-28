@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User; // Ensure this matches your user model name
 use App\Models\EmailVerification;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeMail;
 use App\Mail\OldEmailVerification;
 use App\Mail\NewEmailOtp;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\URL;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -49,7 +51,9 @@ class UserController extends Controller
             'mobile_number' => $mobile_number, // Save mobile number
         ]);
 
-        Mail::to($user->email)->send(new WelcomeMail($user));
+        Mail::to($user->email)->send(new WelcomeMail($user, ));
+
+        event(new Registered($user));
 
         // Redirect or show success message
         return redirect('register')->with('success', 'User registered successfully!');
@@ -147,6 +151,7 @@ class UserController extends Controller
         $request->validate([
             'otp' => 'required|numeric',
         ]);
+
 
         $verification = DB::table('email_verifications')
             ->where('otp', $request->otp)
