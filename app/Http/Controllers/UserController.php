@@ -53,8 +53,6 @@ class UserController extends Controller
 
         Mail::to($user->email)->send(new WelcomeMail($user, ));
 
-        event(new Registered($user));
-
         // Redirect or show success message
         return redirect('register')->with('success', 'User registered successfully!');
 

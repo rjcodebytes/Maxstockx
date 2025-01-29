@@ -7,6 +7,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\UserCourseController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\EmailVerificationController;
+
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Verified;
@@ -46,40 +48,9 @@ Route::get('login', function () {
 Route::post('login', [AuthController::class, 'login'])->name('login.perform');
 // Dashboard Page (Protected)
 
+
+
 Route::middleware(['auth:web'])->group(function () {
-    // Show email verification notice (view prompting user to verify email)
-    Route::get('/email/verify', function () {
-        return view('auth.verify-email'); // A view prompting the user to verify their email
-    })->middleware('auth')->name('verification.notice');
-
-    // Handle email verification link click
-    Route::get('/email/verify/{id}/{hash}', function (Request $request, $id, $hash) {
-        
-        // Manually check if the hash matches the user's email
-        if (!hash_equals((string) $hash, sha1($request->user()->getEmailForVerification()))) {
-            // If the hash is not valid, redirect with an error message
-            return redirect('/users/dashboard')->with('error', 'Invalid verification link.');
-        }
-
-        // Mark the email as verified
-        $request->user()->markEmailAsVerified();
-
-        // Optional: Fire an event for successful verification (if needed)
-        event(new Verified($request->user()));
-
-        // Redirect the user after successful email verification
-        return redirect('/users/dashboard')->with('success', 'Your email has been verified!');
-    })->middleware(['auth', 'signed'])->name('verification.verify');
-
-    // Resend the email verification link
-    Route::post('/email/resend', function (Request $request) {
-        $request->user()->sendEmailVerificationNotification();
-        return back()->with('success', 'A new verification link has been sent to your email address.');
-    })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-});
-
-
-Route::middleware(['auth:web', 'verified'])->group(function () {
 
     Route::get('/users/dashboard', function () {
         return view('users.dashboard'); // Ensure a separate user dashboard view exists
@@ -91,7 +62,11 @@ Route::middleware(['auth:web', 'verified'])->group(function () {
     Route::put('/users/profile/sendlink', [UserController::class, 'sendVerificationLink'])->name('user.send.link');
     Route::get('/profile/verify-old-email/{token}', [UserController::class, 'verifyOldEmail'])->name('user.verify.old.email');
     Route::post('/profile/verify-new-email', [UserController::class, 'verifyNewEmail'])->name('user.verify.new.email');
-
+    Route::post('/send-otp', [EmailVerificationController::class, 'sendOtp'])->name('send.otp');
+    Route::post('/verify-otp', [EmailVerificationController::class, 'verifyOtp'])->name('verify.otp');
+    Route::get('/check-email-status', function () {
+        return response()->json(['verified' => Auth::user()->email_verified_at ? true : false]);
+    })->name('check.email.status')->middleware('auth');
 
     //Courses Routes
     Route::get('/user/course/explore', [UserCourseController::class, 'viewcourse'])->name('course.explore');
