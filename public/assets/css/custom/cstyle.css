@@ -8,7 +8,7 @@ body {
 }
 
 .cstm-btn {
-    width: 100px;
+    width: 150px;
     border-radius: 30px;
     background: #8FE273;
     transition: .3s;
@@ -121,7 +121,7 @@ body {
     top: 0;
     left: 0;
     font-weight: 800;
-    opacity: 0;
+    
     color: transparent;
     z-index: 1;
     -webkit-text-stroke-width: 1.5px;
@@ -134,7 +134,7 @@ body {
     top: 30px;
     left: 45px;
     font-weight: 700;
-    opacity: 0;
+    
     /* For animation */
     z-index: 2;
     /* Higher z-index for overlap */
@@ -147,7 +147,7 @@ body {
     position: relative;
     font-size: 1.5rem;
     top: 70px;
-    opacity: 0;
+    
     font-style: italic;
     /* For animation */
     text-align: left;
@@ -376,6 +376,7 @@ body {
     .navbar-brand img {
         width: 80px;
         height: auto;
+        left:20px
     }
 
     .navbar .btn {
@@ -389,7 +390,7 @@ body {
 
     .cstnav {
         flex-direction: column;
-        padding-left: 60px;
+        padding-left: 20px;
     }
 
     .cstm-btn {
@@ -397,6 +398,14 @@ body {
         font-size: 14px;
         width: 100px;
         /* Add some spacing between buttons */
+    }
+
+    .gtstrd{
+        font-size: .6em;
+    }
+
+    .sbgt{
+    margin-top: 10px !important;        
     }
 
     .navbar-toggler {
@@ -423,7 +432,7 @@ body {
     }
 
     .ftr {
-        font-size: 40px;
+        font-size: 40px !important;
     }
 
     .number-0,

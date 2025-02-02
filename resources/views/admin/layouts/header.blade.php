@@ -42,7 +42,7 @@
 <nav class="navbar  navbar-expand-lg bg-none sticky-navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{url('landing')}}">
-            <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100">
+            <img src="{{ asset('assets/img/logo1.png') }}" width="150" height="100">
         </a>
 
         <!-- Sidebar Toggle Button -->

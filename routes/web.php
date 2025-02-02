@@ -132,3 +132,12 @@ Route::post('check-uniqueness', [UserController::class, 'checkUniqueness'])->nam
 Route::get('explore', function () {
     return view('courses.courses');
 });
+
+
+Route::get('privacy-policy', function () {
+    return view('privacy_policy');
+})->name('privacy-policy');
+
+Route::get('t_and_c', function () {
+    return view('t_and_c');
+})->name('terms-conditions');
