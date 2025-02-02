@@ -104,7 +104,7 @@
     <div class=" container d-flex justify-content-evenly align-items-center">
         <div>
             <a href="{{url('landing')}}">
-                <img src="{{ asset('assets/img/logo.png') }}" width="250" height="200">
+                <img src="{{ asset('assets/img/logo1.png') }}" width="250" height="200">
             </a>
         </div>
 

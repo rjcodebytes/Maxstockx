@@ -4,7 +4,7 @@
             <!-- Logo Section -->
             <div class="col ftr-logo text-center mb-5 me-4">
                 <a class="navbar-brand" href="">
-                    <img src="{{ asset('assets/img/logo.png') }}" width="150" height="100" class="ms-5 mt-5">
+                    <img src="{{ asset('assets/img/logo1.png') }}" width="150" height="100" class="ms-5 mt-5">
                 </a>
             </div>
 
@@ -58,9 +58,6 @@
                     </a>
                     <a href="https://youtube.com" target="_blank" class="me-3 ftr-lnks social">
                         <i class="fab fa-youtube fa-lg"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" class="ftr-lnks social">
-                        <i class="fab fa-twitter fa-lg"></i>
                     </a>
                 </div>
             </div>
