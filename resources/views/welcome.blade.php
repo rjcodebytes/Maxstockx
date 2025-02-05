@@ -35,6 +35,27 @@
             }
         }
 
+        @media (max-width: 767px) {
+            .img-fluid {
+                position: relative;
+                top: 30px !important;
+                scale: 1 !important
+            }
+        }
+
+        @media (max-width: 1199px) {
+
+            /* Tablets (iPad & similar screens) */
+            .floating-img {
+                scale: 1.2 !important;
+            }
+        }
+
+        .text-lime {
+            color: #62CE3E;
+        }
+
+
         .container-fluid {
             display: flex;
             justify-content: center;
@@ -206,7 +227,7 @@
     @include('layouts.header')
 
     <!--Subheader and features Section-->
-    <section class="container-fluid mb-2">
+    <section class="container-fluid mb-2 mnhdrsctn">
 
         <!-- Background Animation -->
         <div class="background">
@@ -249,6 +270,45 @@
                 data-aos-delay="500">Explore Courses</a>
         </div>
 
+    </section>
+
+    <section class=" container mt-5">
+        <div class="container mt-2 mb-5">
+            <div class="container px-5 pb-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-xxl-5">
+                        <!-- Header text content-->
+                        <div class="text-center text-xxl-start">
+                            <div class="badge bg-gradient-primary-to-secondary text-white mb-2 px-0">
+                                <div class="text-uppercase" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">Learn · Invest · Succeed</div>
+                            </div>
+                            <div class="fs-3 fw-light text-white" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400" data-aos-anchor-placement="top-bottom">I can help you master the stock market</div>
+                            <h1 class="display-3 fw-bolder mb-5 text-lime" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500" data-aos-anchor-placement="top-bottom"><span class="text-gradient d-inline">Learn,
+                                    Invest, and
+                                    Grow Your Wealth</span></h1>
+                            <p class="fs-5 text-white" data-aos-once="true" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
+                                Hi, I’m <strong>Mayank Kharwade</strong>, a full-time trader and trainer with 5+ years
+                                of
+                                experience in the Indian stock market.
+                                Trading is my passion and profession, and over the years, I’ve mastered market trends
+                                and
+                                strategies.
+                                My journey from a beginner to a professional trader has been full of learning and
+                                growth,
+                                and now,
+                                I’m here to help you do the same!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-xxl-5 d-flex justify-content-xxl-end justify-content-center" data-aos-once="true" data-aos="zoom-in" data-aos-duration="1300" data-aos-anchor-placement="top-bottom">
+                        <!-- Profile Image Section -->
+                        <img src="{{ asset('assets/img/mxstcks.png') }}" alt="Profile Image"
+                            class="img-fluid shadow-lg floating-img" width="250" style=" scale:1.5">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Features Section -->
@@ -353,11 +413,12 @@
 
     <section class=" containe mt-5">
         <div class="col-md-12 text-center mb-5 mt-5">
-            <h2 class=" ftr" style=" font-size: 70px">Why choose us?</h2>
+            <h2 class=" wftr" style=" font-size: 70px" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true" data-aos-anchor-placement="top-bottom">Why choose us?</h2>
         </div>
         <div class="container d-flex justify-center align-items-center flex-col">
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
                     <div class="card px-4 py-4 grdnt-bx">
                         <div class="icon mb-2">
                             <i class="fi fi-ss-chess" style=" color: green"></i>
@@ -368,7 +429,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
                     <div class="card px-4 py-4 grdnt-bx">
                         <div class="icon mb-2">
                             <i class="fi fi-ss-chart-line-up" style=" color:green"></i>
@@ -379,7 +441,8 @@
                             revenue potential.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
                     <div class="card px-4 py-4 grdnt-bx">
                         <div class="icon mb-2">
                             <i class="fi fi-ss-chart-candlestick" style=" color: green"></i>
@@ -389,7 +452,8 @@
                             live trading.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
                     <div class="card px-4 py-4 grdnt-bx">
                         <div class="icon mb-2">
                             <i class="fi fi-br-chart-mixed-up-circle-dollar" style=" color: green"></i>
@@ -399,17 +463,18 @@
                             trades.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
                     <div class="card px-4 py-4 grdnt-bx">
                         <div class="icon mb-2">
                             <i class="fi fi-ss-team-check-alt" style=" color: green"></i>
                         </div>
                         <h4 class="text-white">Expert Support</h4>
-                        <p class="text-white">Connect with our team for doubt clarification, with nationwide centers
-                            available.</p>
+                        <p class="text-white">Connect with our team for doubt clarification.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
                     <div class="card px-4 py-4 grdnt-bx">
                         <div class="icon mb-2">
                             <i class="fi fi-ss-lightbulb-on" style=" color: green"></i>
@@ -420,6 +485,7 @@
                             Solutions.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -466,6 +532,7 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init();
+        once: true
     </script>
 
 </body>

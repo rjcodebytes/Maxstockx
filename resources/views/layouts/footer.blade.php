@@ -12,7 +12,7 @@
             <div class="col mb-3">
                 <h5 class="h5">Maxstockx</h5>
                 <ul class="list-unstyled pt-2">
-                    <li><a href="{{ url('login') }}" class="text-decoration-none ftr-lnks py-1 d-block">About Us</a>
+                    <li><a href="{{ url('about-us') }}" class="text-decoration-none ftr-lnks py-1 d-block">About Us</a>
                     </li>
                     <li><a href="{{ url('contact') }}" class="text-decoration-none ftr-lnks py-1 d-block">Contact Us</a>
                     </li>
