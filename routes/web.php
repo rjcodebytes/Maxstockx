@@ -21,9 +21,6 @@ Route::get('landing', function () {
     return view('welcome');
 });
 
-Route::get('landing_new', function () {
-    return view('welcome_new');
-});
 
 
 Route::get('login', function () {
@@ -141,3 +138,7 @@ Route::get('privacy-policy', function () {
 Route::get('t_and_c', function () {
     return view('t_and_c');
 })->name('terms-conditions');
+
+Route::get('about-us', function () {
+    return view('about_us');
+})->name('about-us');
