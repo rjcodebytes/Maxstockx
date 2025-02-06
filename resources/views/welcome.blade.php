@@ -47,7 +47,7 @@
 
             /* Tablets (iPad & similar screens) */
             .floating-img {
-                scale: 1.2 !important;
+                scale: 1 !important;
             }
         }
 
@@ -274,19 +274,25 @@
 
     <section class=" container mt-5">
         <div class="container mt-2 mb-5">
-            <div class="container px-5 pb-5">
+            <div class="container">
                 <div class="row gx-5 align-items-center">
                     <div class="col-xxl-5">
                         <!-- Header text content-->
                         <div class="text-center text-xxl-start">
                             <div class="badge bg-gradient-primary-to-secondary text-white mb-2 px-0">
-                                <div class="text-uppercase" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">Learn · Invest · Succeed</div>
+                                <div class="text-uppercase" data-aos="fade-right" data-aos-duration="1000"
+                                    data-aos-once="true">Learn · Invest · Succeed</div>
                             </div>
-                            <div class="fs-3 fw-light text-white" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400" data-aos-anchor-placement="top-bottom">I can help you master the stock market</div>
-                            <h1 class="display-3 fw-bolder mb-5 text-lime" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500" data-aos-anchor-placement="top-bottom"><span class="text-gradient d-inline">Learn,
+                            <div class="fs-3 fw-light text-white" data-aos="fade-right" data-aos-duration="1000"
+                                data-aos-delay="400" data-aos-once="true" data-aos-anchor-placement="top-bottom">I can
+                                help you master the stock market</div>
+                            <h1 class="display-3 fw-bolder mt-2 mb-4 text-lime" data-aos="fade-right"
+                                data-aos-duration="1000" data-aos-delay="500" data-aos-anchor-placement="top-bottom"
+                                data-aos-once="true"><span class="text-gradient d-inline">Learn,
                                     Invest, and
                                     Grow Your Wealth</span></h1>
-                            <p class="fs-5 text-white" data-aos-once="true" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
+                            <p class="fs-5 text-white" data-aos-once="true" data-aos="fade-up" data-aos-duration="1200"
+                                data-aos-delay="200" data-aos-anchor-placement="top-bottom">
                                 Hi, I’m <strong>Mayank Kharwade</strong>, a full-time trader and trainer with 5+ years
                                 of
                                 experience in the Indian stock market.
@@ -301,7 +307,8 @@
                         </div>
                     </div>
 
-                    <div class="col-xxl-5 d-flex justify-content-xxl-end justify-content-center" data-aos-once="true" data-aos="zoom-in" data-aos-duration="1300" data-aos-anchor-placement="top-bottom">
+                    <div class="col-xxl-5 d-flex justify-content-xxl-end justify-content-center" data-aos-once="true"
+                        data-aos="zoom-in" data-aos-duration="1300" data-aos-anchor-placement="top-bottom">
                         <!-- Profile Image Section -->
                         <img src="{{ asset('assets/img/mxstcks.png') }}" alt="Profile Image"
                             class="img-fluid shadow-lg floating-img" width="250" style=" scale:1.5">
@@ -411,9 +418,10 @@
 
     </section>
 
-    <section class=" containe mt-5">
+    <section class=" container mt-5">
         <div class="col-md-12 text-center mb-5 mt-5">
-            <h2 class=" wftr" style=" font-size: 70px" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true" data-aos-anchor-placement="top-bottom">Why choose us?</h2>
+            <h2 class=" wftr" style=" font-size: 70px" data-aos="fade-down" data-aos-duration="1000"
+                data-aos-once="true" data-aos-anchor-placement="top-bottom">Why choose us?</h2>
         </div>
         <div class="container d-flex justify-center align-items-center flex-col">
             <div class="row g-4">
@@ -524,6 +532,80 @@
             </div>
         </div>
     </section>--}}
+
+    <section class="container my-5" id="wlcmfaq">
+        <h2 class="text-center text-highlight ftr mb-2">FAQs</h2>
+        <h2 class="fs-3 text-center text-gray mb-4" data-aos="fade-down" data-aos-duration="1500" data-aos-once="true"
+            data-aos-anchor-placement="top-bottom">Curious minds, we’ve got you covered </h2>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 px-3">
+                <div class="accordion" id="accordionExample">
+
+                    <!-- FAQ 1 -->
+                    <div class="accordion-item mb-4" data-aos="fade-down" data-aos-duration="1500" data-aos-once="true"
+                        data-aos-anchor-placement="top-bottom">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                What is MaxStockx, and how can it help me?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample" style=" transition: 0.3s">
+                            <div class="accordion-body text-gray">
+                                <strong class=" text-lime">MaxStockx</strong> is a platform where users can learn about
+                                the stock market
+                                and how to earn money through smart investments. We offer courses, resources, and expert
+                                insights to help beginners and experienced traders make informed financial decisions.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="accordion-item mb-4" data-aos="fade-down" data-aos-duration="1500" data-aos-once="true"
+                        data-aos-anchor-placement="top-bottom" data-aos-delay="400">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Do I need prior experience to start learning?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample" style=" transition: 0.3s">
+                            <div class="accordion-body text-gray">
+                                No, you don't need any prior experience! MaxStockx provides beginner-friendly courses
+                                along with advanced materials for seasoned investors. Our step-by-step approach makes
+                                learning easy for everyone.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="accordion-item mb-4" data-aos="fade-down" data-aos-duration="1500" data-aos-once="true"
+                        data-aos-anchor-placement="top-bottom" data-aos-delay="700">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+                                style=" transition: 0.3s">
+                                Is the payment process secure?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample" style=" transition: 0.3s">
+                            <div class="accordion-body text-gray">
+                                Yes, absolutely! We use <strong class="text-lime">Razorpay</strong> for processing
+                                payments, ensuring a
+                                secure and encrypted transaction experience. Your personal and financial information
+                                remains protected at all times.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
     @include('layouts.footer')
 
     <!-- Link to the downloaded Bootstrap JS -->

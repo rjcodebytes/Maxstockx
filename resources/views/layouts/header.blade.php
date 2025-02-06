@@ -5,7 +5,7 @@
     }
 </style>
 
-<nav class="navbar navbar-expand-lg bg-none sticky-navbar" data-aos="flip-up" data-aos-duartion="1000">
+<nav class="navbar navbar-expand-lg bg-none sticky-navbar" data-aos="flip-up" data-aos-duartion="1000" data-aos-once="true">
     <a class="navbar-brand" href="{{url('landing')}}">
         <img src="{{ asset('assets/img/logo1.png') }}" width="120" height="80" alt="Logo">
     </a>

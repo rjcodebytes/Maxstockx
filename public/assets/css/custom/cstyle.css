@@ -348,7 +348,7 @@ body {
 .ftr-logo {
     position: relative;
     bottom: 20px;
-    right: 50px;
+    right: 21px;
 }
 
 .footer {
@@ -440,6 +440,10 @@ body {
         font-size: 15px;
     }
 
+    .text-gray{
+        font-size: 15px !important;
+    }
+
     .h4 {
         font-size: 9px;
     }
@@ -477,6 +481,7 @@ body {
         /* Switch to horizontal direction */
         justify-content: center;
         align-items: flex-start;
+        margin-bottom: 40px;
     }
 
     .numbers {
@@ -491,3 +496,44 @@ body {
     }
 
 }
+
+/*Colours*/
+
+.text-gray{
+    color: rgb(117 117 117) !important;
+}
+
+.accordion-item {
+    background-color: #111; /* Slightly Lighter Black */
+    border: 2px solid #87dc6b !important; /* Neon Green Border */
+    border-radius: 10px !important;
+}
+
+.accordion-button {
+    background-color: transparent; /* Dark Gray */
+    color: #62CE3E !important; /* Neon Green */
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    border-radius: 9px;
+}
+
+.accordion-button:hover, .accordion-button:focus {
+    color: rgb(255, 255, 255) !important; /* Black Text */
+    box-shadow:none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #62CE3E !important;
+    color: #000 !important;
+}
+
+/* ✅ Make Arrow Icon Green */
+.accordion-button::after {
+    filter: brightness(0) saturate(100%) invert(54%) sepia(89%) saturate(3000%) hue-rotate(90deg) brightness(110%) contrast(120%);
+}
+
+/* Change Arrow to Black When Active */
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(0); /* Makes it Black */
+}
+
