@@ -140,5 +140,8 @@ Route::get('t_and_c', function () {
 })->name('terms-conditions');
 
 Route::get('about-us', function () {
-    return view('about_us');
+    return view('about_
+    us');
 })->name('about-us');
+
+Route::get('/user/course/payment/callback', [PaymentController::class, 'paymentCallback'])->name('payment.callback');
