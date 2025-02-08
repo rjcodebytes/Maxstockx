@@ -11,7 +11,12 @@
 
 body {
     background: black;
-    height: 100%;
+    height: 100vh !important;
+}
+
+
+.text-lime {
+    color: #62CE3E;
 }
 
 .cstm-btn {
@@ -221,9 +226,10 @@ body {
     color: #636363;
 }
 
-.crs-btn {
+.crd-btn {
     padding: 5px 20px;
     border-radius: 60px;
+    text-decoration: none;
 }
 
 .btn-primary {
@@ -440,7 +446,7 @@ body {
         font-size: 15px;
     }
 
-    .text-gray{
+    .text-gray {
         font-size: 15px !important;
     }
 
@@ -499,27 +505,33 @@ body {
 
 /*Colours*/
 
-.text-gray{
+.text-gray {
     color: rgb(117 117 117) !important;
 }
 
 .accordion-item {
-    background-color: #111; /* Slightly Lighter Black */
-    border: 2px solid #87dc6b !important; /* Neon Green Border */
+    background-color: #111;
+    /* Slightly Lighter Black */
+    border: 2px solid #87dc6b !important;
+    /* Neon Green Border */
     border-radius: 10px !important;
 }
 
 .accordion-button {
-    background-color: transparent; /* Dark Gray */
-    color: #62CE3E !important; /* Neon Green */
+    background-color: transparent;
+    /* Dark Gray */
+    color: #62CE3E !important;
+    /* Neon Green */
     font-weight: bold;
     transition: all 0.3s ease-in-out;
     border-radius: 9px;
 }
 
-.accordion-button:hover, .accordion-button:focus {
-    color: rgb(255, 255, 255) !important; /* Black Text */
-    box-shadow:none;
+.accordion-button:hover,
+.accordion-button:focus {
+    color: rgb(255, 255, 255) !important;
+    /* Black Text */
+    box-shadow: none;
 }
 
 .accordion-button:not(.collapsed) {
@@ -534,6 +546,50 @@ body {
 
 /* Change Arrow to Black When Active */
 .accordion-button:not(.collapsed)::after {
-    filter: brightness(0); /* Makes it Black */
+    filter: brightness(0);
+    /* Makes it Black */
 }
 
+
+
+/*Checkout Page*/
+.checkout-container {
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    max-height: 400px;
+    width: 90%;
+}
+
+/* Heading */
+
+/* Course Details */
+.course-details {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.course-details p {
+    margin: 10px 0;
+}
+
+/* Pay Button */
+#pay-btn {
+    background: #0f0;
+    color: #121212;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#pay-btn:hover {
+    background: #0c0;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
+}
