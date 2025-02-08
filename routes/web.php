@@ -127,7 +127,7 @@ Route::post('signup', [UserController::class, 'store'])->name('register.store');
 Route::post('check-uniqueness', [UserController::class, 'checkUniqueness'])->name('check.uniqueness');
 
 Route::get('explore', function () {
-    return view('courses.courses');
+    return view('expcourses.expcourses');
 });
 
 
@@ -140,8 +140,6 @@ Route::get('t_and_c', function () {
 })->name('terms-conditions');
 
 Route::get('about-us', function () {
-    return view('about_
-    us');
+    return view('about_us');
 })->name('about-us');
 
-Route::get('/user/course/payment/callback', [PaymentController::class, 'paymentCallback'])->name('payment.callback');

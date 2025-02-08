@@ -76,9 +76,9 @@
 
 <body>
     <!-- Preloader -->
-     <div id="preloader">
+    {{--<div id="preloader">
         <img src="{{ asset('assets/img/flogo.png') }}" alt="MaxStockx Logo">
-    </div>
+    </div>--}}
     
     @include("users.layouts.headerdash")
 

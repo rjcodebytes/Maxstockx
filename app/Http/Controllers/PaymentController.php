@@ -51,7 +51,7 @@ class PaymentController extends Controller
                 session()->flash('success', 'Enrollment successful!');
                 return response()->json([
                     'status' => 'success',
-                    'redirect_url' => route('users.dashboard'),
+                    'redirect_url' => route('course.explore'),
                     'message' => 'Enrollment successful!',
                 ]);
             }

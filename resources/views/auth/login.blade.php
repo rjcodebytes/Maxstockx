@@ -20,7 +20,9 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            backdrop-filter: blur(20px);
         }
+
 
         .cstm-btn-login {
             scale: .8;
@@ -113,7 +115,7 @@
         <div>
             <div class="card py-2 px-4 pt-4 shadow-lg">
                 <!-- Display Errors -->
-               @include('_message')
+                @include('_message')
 
                 <!-- Login Form -->
                 <h3 class="text-center mb-4 mt-2">Login</h3>
