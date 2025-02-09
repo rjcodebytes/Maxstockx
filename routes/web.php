@@ -40,6 +40,12 @@ Route::get('login', function () {
     return view('auth.login');
 })->name('login');
 
+Route::get('/admin/verify-otp', function () {
+    return view('admin.verifyOtp'); // Create this view
+})->name('admin.verifyOtp');
+
+Route::post('/admin/verify-otp', [AuthController::class, 'verifyOtp'])->name('admin.verifyOtp.post');
+
 
 // Handle Login Submission
 Route::post('login', [AuthController::class, 'login'])->name('login.perform');
