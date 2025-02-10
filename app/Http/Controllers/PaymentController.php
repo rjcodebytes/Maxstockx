@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CourseEnrollmentMail;
 use App\Models\EnrolledCourse;
 use App\Models\Course;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Razorpay\Api\Api;
 
@@ -40,23 +42,29 @@ class PaymentController extends Controller
             $payment = $api->payment->fetch($input['razorpay_payment_id']);
 
             if ($payment->status == 'captured') {
+                $user = User::find(auth()->id()); // Ensure we get an instance of User
+                $course = Course::where('course_id', $input['course_id'])->firstOrFail(); // Get a single Course instance
+
+
                 // Store the enrollment in the database
                 EnrolledCourse::create([
-                    'user_id' => auth()->user()->user_id,
+                    'user_id' => $user->user_id,
                     'course_id' => $input['course_id'],
                     'transaction_id' => $payment->id,
                 ]);
 
-                // Return a success response for AJAX
-                session()->flash('success', 'Enrollment successful!');
+                // Send email with course details
+                Mail::to($user->email)->send(new CourseEnrollmentMail($user, $course));
+
+                session()->flash('success', 'Enrollment successful! Check your email for details.');
                 return response()->json([
                     'status' => 'success',
                     'redirect_url' => route('course.explore'),
-                    'message' => 'Enrollment successful!',
+                    'message' => 'Enrollment successful! Email sent with course details.',
                 ]);
             }
 
-            // For payment verification failure
+            // Payment verification failure
             session()->flash('error', 'Payment verification failed.');
             return response()->json([
                 'status' => 'error',
