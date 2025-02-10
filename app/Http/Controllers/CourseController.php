@@ -26,6 +26,7 @@ class CourseController extends Controller
             'course_description' => 'required',
             'course_pricing' => 'required|numeric',
             'course_thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image
+            'whatsapp_link' => 'nullable|url|max:255' // Validate URL
         ]);
 
         // Store the uploaded image as binary data
@@ -37,6 +38,7 @@ class CourseController extends Controller
             'course_description' => $request->course_description,
             'course_pricing' => $request->course_pricing,
             'course_thumbnail' => $thumbnail,
+            'whatsapp_link' => $request->whatsapp_link,
         ]);
 
         return redirect()->route('admin.managecourse')->with('success', 'Course created successfully.');
@@ -66,12 +68,13 @@ class CourseController extends Controller
             'course_description' => 'required',
             'course_pricing' => 'required|numeric',
             'course_thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate the image (optional)
+            'whatsapp_link' => 'nullable|url|max:255' // Validate WhatsApp link
         ]);
 
         $course = Course::findOrFail($id);
 
         // Update course data
-        $data = $request->only('course_name', 'course_description', 'course_pricing');
+        $data = $request->only('course_name', 'course_description', 'course_pricing','whatsapp_link');
 
         // If a new thumbnail is uploaded, store it as binary
         if ($request->hasFile('course_thumbnail')) {

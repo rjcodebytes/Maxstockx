@@ -38,6 +38,12 @@
                 required>
         </div>
 
+        <div class="mb-3">
+            <label for="whatsapp_link" class="form-label text-white">WhatsApp Group Link</label>
+            <input type="url" class="form-control" id="whatsapp_link" name="whatsapp_link"
+                placeholder="Enter WhatsApp Group Link">
+        </div>
+
         <button type="submit" class="btn btn-primary">Create Course</button>
         <a href="{{ route('admin.managecourse') }}" class="btn btn-secondary">Cancel</a>
     </form>

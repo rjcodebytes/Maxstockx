@@ -9,7 +9,7 @@ class Course extends Model
     use HasFactory;
 
     protected $primaryKey = 'course_id';
-    protected $fillable = ['course_name', 'course_description', 'course_pricing','course_thumbnail'];
+    protected $fillable = ['course_name', 'course_description', 'course_pricing','course_thumbnail','whatsapp_link'];
 
     public function contents()
     {
